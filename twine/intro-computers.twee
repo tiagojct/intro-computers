@@ -1,0 +1,901 @@
+:: StoryTitle
+Do hardware ao agente
+
+:: StoryData
+{
+    "ifid": "7A3E9C12-4B8D-4F1A-9C6E-2D5B8F3A1470",
+    "format": "SugarCube",
+    "format-version": "2.37.3",
+    "start": "Start"
+}
+
+:: StoryInit
+<<set $step to 0>>
+<<set $total to 21>>
+<<set $checkpoint to 1>>
+<<set $glossary_done to false>>
+<<set $path to []>>
+
+:: StoryCaption
+<span class="progress-bar">Etapa $step de $total</span>
+
+:: StoryMenu
+[[Glossário|Glossary]] | [[Resumo|Recap]] | [[Mapa|Schema]]
+
+:: Start
+<div class="title-screen">
+
+<div class="kicker">Computação para a prática clínica</div>
+
+# Do hardware ao agente
+
+Da máquina à inteligência artificial. Um passo de cada vez.
+
+----
+
+<div class="chain-mini">
+Máquina → Programas → Sistema → Ficheiros → Comandos → Instalar → Internet → **Agente**
+</div>
+
+----
+
+Este percurso leva-te do hardware ao agente de IA, com exemplos do dia-a-dia clínico. São 21 etapas. Cada uma acrescenta uma peça. No fim, o puzzle está completo.
+
+Podes saltar para o [[glossário|Glossary]] a qualquer momento, ou ver o [[resumo final|Recap]].
+
+[[Começar|Hardware]]
+</div>
+
+:: Hardware
+<<set $step to max($step, 1)>>
+<div class="passage">
+
+## As três peças que importam
+
+A máquina física tem três componentes. Conhece-as:
+
+<div class="three-cards">
+
+<div class="card">
+<div class="card-icon">⚙</div>
+<h3>Processador</h3>
+Faz o trabalho. Calcula e executa as instruções.
+
+*sempre a trabalhar*
+</div>
+
+<div class="card dim">
+<div class="card-icon">📋</div>
+<h3>Memória (RAM)</h3>
+A secretária: só o que estás a usar neste momento.
+
+*temporária — ao desligar, desaparece*
+</div>
+
+<div class="card">
+<div class="card-icon">💾</div>
+<h3>Armazenamento</h3>
+O arquivo: os ficheiros ficam guardados.
+
+*permanente — sobrevive a desligar*
+</div>
+
+</div>
+
+A memória é **volátil** — como o tampo da secretária, limpa-se quando desligas. O armazenamento é **persistente** — como uma gaveta de arquivo.
+
+<div class="aside">Tudo isto está só **nesta** máquina — até algo o enviar para fora.</div>
+
+</div>
+
+<<display "Checkpoint">>
+
+[[Seguinte: As instruções|Software]]
+
+:: Software
+<<set $step to max($step, 2)>>
+<div class="passage">
+
+## Sozinha, não faz nada
+
+O **software** são as instruções que dizem ao hardware o que fazer. Sem elas, a máquina está ligada — mas não sabe o que fazer.
+
+<div class="example-box">
+<div class="ex-title">Exemplo clínico</div>
+
+`abrir` a lista de doentes
+`escolher` os com mais de 65 anos
+`calcular` a tensão média
+`guardar` o resultado
+</div>
+
+O software está para o hardware como o **conhecimento clínico** está para o profissional de saúde: sem ele, tens as ferramentas mas não sabes o que fazer com elas.
+
+<div class="aside">Todo o software que usas — Word, Excel, navegador — são instruções que correm no hardware.</div>
+
+</div>
+
+[[Seguinte: Quem organiza tudo|OS]]
+
+:: OS
+<<set $step to max($step, 3)>>
+<div class="passage">
+
+## Quem organiza tudo
+
+Entre ti e o hardware há um programa principal que **gere as peças**, abre os teus programas e guarda os ficheiros. É o **sistema operativo**.
+
+<div class="layers-diagram">
+
+**Tu e os teus programas** ← clicas e escreves
+
+↓
+
+**Sistema operativo** ← gere · abre · guarda
+*É um destes:* Windows · macOS · Linux
+
+↓
+
+**Hardware** ← as peças físicas
+
+</div>
+
+O sistema operativo é o **intermediário**. Tu pedes, ele traduz para a máquina.
+
+</div>
+
+<<display "Checkpoint">>
+
+[[Seguinte: A unidade de tudo|File]]
+
+:: File
+<<set $step to max($step, 4)>>
+<div class="passage">
+
+## O que é um ficheiro?
+
+Informação guardada com um **nome**. Tudo o que está no computador são ficheiros.
+
+O fim do nome (a extensão) indica o tipo:
+
+| Ficheiro | Tipo |
+|----------|------|
+| `coorte.csv` | Folha de cálculo |
+| `notas.txt` | Texto simples |
+| `exame.pdf` | Documento |
+| `foto.jpg` | Imagem |
+
+Um ficheiro é como uma **página de processo clínico**: tem um identificador (nome) e conteúdo. O computador não sabe o que lá está — só sabe que é uma sequência de bytes com um nome.
+
+</div>
+
+[[Seguinte: Como um arquivo clínico|Filesystem]]
+
+:: Filesystem
+<<set $step to max($step, 5)>>
+<div class="passage">
+
+## Como um arquivo clínico
+
+Os ficheiros organizam-se em pastas, que podem conter outras pastas. É igual a um arquivo clínico:
+
+```
+Hospital/
+  ├─ Cardiologia/
+  │    └─ Doente-0412/
+  │         ├─ exame.pdf
+  │         └─ notas.txt
+  └─ Radiologia/
+```
+
+<div class="aside">
+Numa linha só: `Hospital / Cardiologia / Doente-0412`
+
+Cada serviço é uma **pasta de topo**. Cada doente é uma **sub-pasta**. Os exames são **ficheiros**.
+</div>
+
+A estrutura é **hierárquica**: começa na raiz e vai ramificando.
+
+</div>
+
+<<display "Checkpoint">>
+
+[[Seguinte: Onde podes mexer|Zones]]
+
+:: Zones
+<<set $step to max($step, 6)>>
+<div class="passage">
+
+## A zona do sistema vs a tua zona
+
+O computador tem duas zonas distintas:
+
+<div class="two-zones">
+
+<div class="zone locked">
+🔒 **Zona do sistema**
+Pasta restrita. O sistema vive aqui.
+
+Não entras, não apagas, não alteras.
+
+*≈ armazém da farmácia · sala dos servidores*
+</div>
+
+<div class="zone open">
+🔓 **A tua zona**
+A tua pasta pessoal. O teu trabalho vive aqui.
+
+Lês, escreves, organizas como quiseres.
+
+*≈ o teu gabinete*
+</div>
+
+</div>
+
+Esta separação impede-te de **estragar o sistema sem querer**. Como não entras na sala dos servidores do hospital — usas o teu gabinete.
+
+</div>
+
+[[Um desvio: ficheiros ocultos|Dotfiles]] | [[Seguinte: Falar com a máquina|Shell]]
+
+:: Dotfiles
+<div class="passage">
+
+## Ficheiros ocultos
+
+Há ficheiros que não vês normalmente. São ficheiros de **configuração** — guardam as definições das tuas ferramentas. Começam por um **ponto** (`.`):
+
+<div class="example-box">
+
+`coorte.csv` ← os teus dados (visível)
+`notas.txt` ← as tuas notas (visível)
+`.editor` ← definições do editor (oculto)
+`.terminal` ← aspecto do terminal (oculto)
+
+</div>
+
+São como a **calibração de um aparelho médico**: defines uma vez, e a ferramenta lembra-se. Não precisas de mexer neles todos os dias — mas estão lá.
+
+<div class="aside">Só os vês se pedires para "mostrar ficheiros ocultos".</div>
+
+</div>
+
+[[Voltar ao percurso|Shell]]
+
+:: Shell
+<<set $step to max($step, 7)>>
+<div class="passage">
+
+## Duas formas de pedir o mesmo
+
+Há duas maneiras de fazer o que queres no computador. O resultado é o mesmo. O esforço, não.
+
+<div class="two-cols">
+
+<div class="col">
+**🖱 Clicar pelos menus**
+
+1. abrir o menu
+2. procurar a pasta certa
+3. selecionar o ficheiro
+4. escolher o destino
+5. confirmar
+
+*Cinco passos — outra vez para cada ficheiro.*
+</div>
+
+<div class="col highlight">
+**⌨ Escrever a ordem**
+
+`copiar notas.txt → pasta cópias`
+
+*Uma linha — repete-se sempre igual.*
+</div>
+
+</div>
+
+Escrever ordens é mais **directo, exacto e repetível**. Como uma prescrição: não andas à procura de caixas de selecção — escreves e está feito.
+
+</div>
+
+[[Seguinte: A janela de texto|Terminal]]
+
+:: Terminal
+<<set $step to max($step, 8)>>
+<div class="passage">
+
+## O terminal
+
+Uma janela de texto. Escreves, carregas Enter, a máquina responde.
+
+<div class="terminal-box">
+<div class="term-header">terminal — rosa</div>
+<div class="term-body">
+<span class="teal">rosa</span> <span class="blue">~/estudo</span> <span class="white">ls</span>
+
+<span class="grey">coorte.csv  notas.txt  imagens/</span>
+</div>
+</div>
+
+Cada linha do terminal tem quatro partes:
+
+- **rosa** — quem és (o utilizador)
+- **~/estudo** — onde estás (a pasta actual)
+- **ls** — a ordem que escreveste (aqui, "listar")
+- Resposta — o que a máquina devolve
+
+<div class="aside">Menos bonito. Mais **directo, exacto e repetível**.</div>
+
+</div>
+
+<<display "Checkpoint">>
+
+[[Um desvio: repetir sem esforço|Automation]] | [[Seguinte: De onde vem o software|Packages]]
+
+:: Automation
+<div class="passage">
+
+## O que é exacto, repete-se
+
+Uma ordem, muitos ficheiros. Fazes uma vez; a máquina repete.
+
+<div class="example-box">
+
+**organizar** todos os exames
+
+`exame-001.pdf` ✓
+`exame-002.pdf` ✓
+`exame-003.pdf` ✓
+...
+`exame-1000.pdf` ✓
+
+— 1000 ficheiros tratados
+
+</div>
+
+Isto é **automatizar**: tarefas repetitivas feitas pela máquina — sem esforço e sempre iguais. Onde um humano se cansa ao décimo ficheiro, o computador faz mil sem pestanejar.
+
+<div class="aside">Na saúde: renomear centenas de imagens, converter formatos, extrair metadados. Tudo com uma ordem.</div>
+
+</div>
+
+[[Voltar ao percurso|Packages]]
+
+:: Packages
+<<set $step to max($step, 9)>>
+<div class="passage">
+
+## Só de fontes de confiança
+
+Os programas instalam-se a partir de uma **lista verificada**. Como um formulário de medicamentos aprovados: só entra o que está na lista.
+
+<div class="flow-diagram">
+
+**Lista verificada** (com escudo) → **A tua máquina**
+
+✅ editor &nbsp; ✅ navegador &nbsp; ✅ ferramentas de análise
+
+</div>
+
+Nunca um programa qualquer apanhado na internet. **Só da lista.**
+
+No Mac: `Homebrew`. No Linux: `apt`. Para programação: `npm`.
+
+<div class="terminal-box">
+<div class="term-header">terminal</div>
+<div class="term-body">
+<span class="white">instalar editor</span>
+<span class="grey">a instalar editor... feito.</span>
+</div>
+</div>
+
+</div>
+
+<<display "Checkpoint">>
+
+[[Seguinte: Pedido e resposta|Internet]]
+
+:: Internet
+<<set $step to max($step, 10)>>
+<div class="passage">
+
+## Pedido e resposta
+
+A internet não é magia. A tua máquina envia um **pedido** a um servidor e recebe uma **resposta**.
+
+<div class="flow-diagram">
+
+🖥 **A tua máquina** *(o teu consultório)*
+
+↓ pedido *(envias a amostra)*
+
+🖧 **Servidor** *(o laboratório externo)*
+
+↑ resposta *(recebes os resultados)*
+
+</div>
+
+É igual ao circuito de análises clínicas: a amostra sai, é processada noutro sítio, e o resultado volta. Não é magia — é só distância.
+
+</div>
+
+[[Seguinte: O formato do pedido|API]]
+
+:: API
+<<set $step to max($step, 11)>>
+<div class="passage">
+
+## Só um impresso de requisição
+
+Os computadores precisam do pedido num **formato fixo**, com campos. Isso é uma **API**.
+
+<div class="two-cols">
+
+<div class="col">
+❌ **Texto solto**
+
+"Preciso de um hemograma para o doente 0412 com urgência normal"
+
+*difícil de processar*
+</div>
+
+<div class="col highlight">
+✅ **Pedido estruturado (API)**
+
+`exame: hemograma`
+`doente: 0412`
+`urgência: normal`
+
+*campos claros, sempre iguais*
+</div>
+
+</div>
+
+A API é como o **impresso do laboratório**: campos fixos, sem ambiguidade. O que escreves encaixa sempre no mesmo sítio.
+
+</div>
+
+[[Seguinte: A tua credencial|APIKey]]
+
+:: APIKey
+<<set $step to max($step, 12)>>
+<div class="passage">
+
+## A chave de API
+
+Uma chave que te identifica no serviço. É **pessoal e intransmissível**.
+
+<div class="example-box">
+
+🔑 `sk-···` a tua chave pessoal
+
+</div>
+
+Três regras:
+
+✅ **Identifica-te** ao serviço: ele sabe que o pedido é teu.
+❌ **Nunca** a partilhes nem a escrevas onde outros a vejam.
+⚠️ **Pode ter custos:** cada pedido ao serviço pode ser pago.
+
+<div class="aside warn">Como o teu **login de prescritor**: é tua, é a tua responsabilidade. Trata-a como tal.</div>
+
+</div>
+
+<<display "Checkpoint">>
+
+[[Seguinte: O cérebro emprestado|Model]]
+
+:: Model
+<<set $step to max($step, 13)>>
+<div class="passage">
+
+## O modelo — o cérebro emprestado
+
+Um programa enorme, treinado para prever texto. Corre em **datacenters**, não no teu portátil.
+
+<div class="flow-diagram">
+
+🖥 O teu portátil → 🔑 → 🧩 Montra de modelos → 🖧 Modelo num datacenter
+
+</div>
+
+Há muitos modelos, com **capacidades e preços** diferentes. A chave de API dá-te acesso. Tu escolhes qual usar — conforme a tarefa e o orçamento.
+
+<div class="aside">O portátil só pergunta. Quem pensa é um computador noutro sítio, muito maior.</div>
+
+</div>
+
+<<display "Checkpoint">>
+
+[[Seguinte: Juntando tudo|Agent]]
+
+:: Agent
+<<set $step to max($step, 14)>>
+<div class="passage">
+
+## OpenCode: o agente
+
+Uma IA que vive no **terminal** e trabalha nos teus ficheiros por ti. Instala-se com o **gestor de pacotes** que já viste.
+
+O que faz:
+
+📖 **Lê** — Abre e percebe os teus ficheiros.
+✏️ **Escreve** — Cria e altera ficheiros por ti.
+▶️ **Executa** — Corre ordens em teu nome.
+
+<div class="terminal-box">
+<div class="term-header">opencode</div>
+<div class="term-body">
+<span class="white">lê os meus dados e calcula a média de idades</span>
+<span class="grey">a analisar coorte.csv...
+média de idades: 58.3 anos
+ficheiro 'resultados.txt' criado.</span>
+</div>
+</div>
+
+O agente junta **tudo** o que viste até aqui: terminal, internet, API, modelo. É a camada final.
+
+</div>
+
+[[Seguinte: A IA pode enganar-se|AIErrs]]
+
+:: AIErrs
+<<set $step to max($step, 15)>>
+<div class="passage">
+
+## A IA pode enganar-se
+
+Útil, mas não é fonte de verdade. Pode errar **com toda a confiança**.
+
+<div class="warn-box">
+
+❌ Pode **inventar** coisas que parecem certas, mas não são.
+
+❌ Não conhece o **teu doente** nem o contexto clínico.
+
+✅ **Confirma sempre** o que ela produz, antes de usar.
+
+</div>
+
+<div class="aside warn">Assistente, não substituto. A **responsabilidade clínica é tua**.</div>
+
+</div>
+
+[[Seguinte: A fronteira|Boundary]]
+
+:: Boundary
+<<set $step to max($step, 16)>>
+<div class="passage">
+
+## Para pensar, o agente envia os teus ficheiros para fora
+
+Para raciocinar, o agente manda o que lê — ficheiros e perguntas — a um serviço de IA na **cloud**.
+
+<div class="boundary-diagram">
+
+```
+━━━━━━━━━━━━━━━ fronteira institucional ━━━━━━━━━━━━━━━
+
+🖥 A TUA MÁQUINA          │    ☁️ SERVIÇO DE IA
+   os ficheiros,          │       um computador de
+   os dados               │       outra empresa,
+   📄 📄 📄               │       noutro sítio
+```
+
+</div>
+
+Na cloud, o conteúdo dos teus ficheiros **sai da máquina**. Isto não é um pormenor — é a consequência inevitável de usar IA na cloud.
+
+<div class="aside warn">Os ficheiros atravessam uma fronteira. O que estava só na tua máquina passa a estar noutro sítio.</div>
+
+</div>
+
+[[Seguinte: Quando os ficheiros têm dados de doentes|Patient]]
+
+:: Patient
+<<set $step to max($step, 17)>>
+<div class="passage">
+
+## Não é uma conveniência
+
+Enviar dados identificáveis para fora é **tratamento de dados** (RGPD). Antes de o fazeres, três perguntas:
+
+<div class="checklist">
+
+📄 Há um **contrato** com quem trata os dados?
+
+🌍 **Onde** (em que país) ficam guardados os dados?
+
+✅ Há **base legal** e consentimento para este uso?
+
+</div>
+
+<div class="aside warn">Sem resposta clara, **não envies para a cloud**. Na dúvida, fala com o DPO da tua instituição.</div>
+
+</div>
+
+[[Seguinte: A opção segura|Local]]
+
+:: Local
+<<set $step to max($step, 18)>>
+<div class="passage">
+
+## Manter tudo na máquina
+
+Para dados identificáveis, a escolha segura é uma IA que corre na tua **própria máquina** — com o **Ollama**, da lista verificada. Nada sai.
+
+<div class="boundary-diagram safe">
+
+```
+━━━━━━━━━━━━━━━ nada atravessa ━━━━━━━━━━━━━━━
+
+🖥 A TUA MÁQUINA          │    ☁️ Cloud
+   ficheiros e modelo,    │       não é usada
+   juntos                 │
+   📄 📄 ⚙                │
+```
+
+</div>
+
+Instala-se da mesma lista verificada. É mais lento e menos capaz do que os modelos da cloud — mas é **privado por construção**.
+
+<div class="aside">A cloud só sem dados de doentes (ou com contratos e consentimento explícito). Dados identificáveis: modelo local.</div>
+
+</div>
+
+<<display "Checkpoint">>
+
+[[Ver o resumo completo|Recap]] | [[Glossário|Glossary]] | [[Mapa final|Schema]]
+
+:: Checkpoint
+<<if $checkpoint is 1>>
+<div class="checkpoint-box">
+<div class="cp-title">📍 Onde estamos</div>
+
+Já viste: **máquina → software → sistema → ficheiros**
+
+A máquina física (hardware) precisa de instruções (software) para fazer algo. Quem organiza tudo é o sistema operativo. Tudo o que guardas são ficheiros, organizados em pastas como um arquivo clínico. E o sistema protege-te: tens a tua zona e ele tem a dele.
+</div>
+<<set $checkpoint to 2>>
+<<elseif $checkpoint is 2>>
+<div class="checkpoint-box">
+<div class="cp-title">📍 Onde estamos</div>
+
+Já viste: **máquina → software → sistema → ficheiros → comandos**
+
+Há duas formas de pedir as coisas: clicar em menus (lento, muitos passos) ou escrever ordens no terminal (rápido, directo, repetível). O terminal é uma janela de texto onde dás ordens e a máquina responde. E podes automatizar tarefas repetitivas.
+</div>
+<<set $checkpoint to 3>>
+<<elseif $checkpoint is 3>>
+<div class="checkpoint-box">
+<div class="cp-title">📍 Onde estamos</div>
+
+Já viste: **máquina → software → sistema → ficheiros → comandos → instalar → internet**
+
+Os programas instalam-se de fontes de confiança (gestor de pacotes). A internet é pedido + resposta — como enviar uma amostra ao laboratório. Os pedidos têm um formato fixo (API). Precisas de uma chave pessoal para te identificares.
+</div>
+<<set $checkpoint to 4>>
+<<elseif $checkpoint is 4>>
+<div class="checkpoint-box">
+<div class="cp-title">📍 Onde estamos</div>
+
+Já viste: **máquina → software → sistema → ficheiros → comandos → instalar → internet → modelo → agente**
+
+O modelo é um cérebro emprestado que corre na cloud. O agente (OpenCode) junta tudo: lê, escreve e executa no teu terminal. Mas a IA pode enganar-se — confirma sempre. E atenção: ao usar a cloud, os teus ficheiros saem da máquina.
+</div>
+<<set $checkpoint to 5>>
+<<elseif $checkpoint is 5>>
+<div class="checkpoint-box">
+<div class="cp-title">📍 Chegaste ao fim</div>
+
+Viste o percurso completo: **máquina → software → sistema → ficheiros → comandos → instalar → internet → modelo → agente**.
+
+Com dados de doentes, a escolha segura é o modelo local (Ollama). Nada sai da tua máquina. Cloud só com contratos e consentimento.
+
+Parabéns. Agora vê o [[resumo completo|Recap]] ou o [[mapa final|Schema]].
+</div>
+<<set $checkpoint to 6>>
+<</if>>
+
+:: Glossary
+<<set $glossary_done to true>>
+<div class="passage">
+
+## Glossário rápido
+
+| Termo | Definição |
+|-------|-----------|
+| **Hardware** | A máquina física |
+| **Software** | Os programas (as instruções) |
+| **Sistema operativo** | Quem organiza tudo — Windows, macOS, Linux |
+| **Ficheiro** | Informação guardada com um nome |
+| **Pasta** | Contentor que organiza ficheiros |
+| **Terminal** | Janela de texto para dar ordens |
+| **Gestor de pacotes** | Instalar programas de fontes de confiança |
+| **Cloud** | Computador de outra empresa, noutro sítio |
+| **API** | O formato do pedido a um serviço |
+| **Chave de API** | A tua credencial pessoal |
+| **Modelo** | Programa de IA que processa texto |
+| **Agente** | IA que trabalha nos teus ficheiros (OpenCode) |
+| **Ollama** | IA que corre na tua própria máquina |
+| **Dotfile** | Ficheiro de definições, oculto (começa por `.`) |
+
+</div>
+
+[[Voltar ao percurso|Start]]
+
+:: Recap
+<div class="passage">
+
+## O caminho completo
+
+<div class="recap-chain">
+
+**Máquina** → **Programas** → **Sistema** → **Ficheiros** → **Comandos** → **Instalar** → **Internet** → **Agente**
+
+</div>
+
+Foi este o percurso. Cada passo constrói sobre o anterior. Do hardware físico à inteligência artificial.
+
+<div class="warn-box">
+
+Na cloud, os ficheiros **atravessam uma fronteira**.
+
+Com dados de doentes: **modelo local**. Cloud só com contratos e consentimento.
+
+</div>
+
+</div>
+
+[[Ver o mapa|Schema]] | [[Glossário|Glossary]] | [[Recomeçar|Start]]
+
+:: Schema
+<div class="passage">
+
+## Tudo ligado
+
+```
+   🖥 MÁQUINA
+    │  [software: as instruções]
+    ▼
+   ⚙ SISTEMA
+    │
+    ▼
+   📂 FICHEIROS
+    │
+    ▼
+   ⌨ TERMINAL ←── 📦 INSTALAR (gestor de pacotes)
+    │
+    ▼
+   🌐 INTERNET ──→ pedido/resposta
+    │
+    ▼
+   📋 API ──→ 🔑 CHAVE
+    │
+    ▼
+   ▶️ AGENTE ──→ ☁️ CLOUD (os ficheiros saem)
+    │              
+    └──→ 🔒 LOCAL (nada sai — Ollama)
+```
+
+As setas a **laranja** atravessam a fronteira institucional. As setas a **verde** mantêm tudo na tua máquina.
+
+</div>
+
+[[Resumo|Recap]] | [[Glossário|Glossary]] | [[Recomeçar|Start]]
+
+:: StoryStylesheet [stylesheet]
+body {
+  font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  background: #faf7f2;
+  color: #1a1a1a;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+h1 { font-size: 2.2em; margin-bottom: 0.3em; }
+h2 { font-size: 1.5em; margin-top: 0; margin-bottom: 0.4em; color: #111; }
+h3 { font-size: 1.1em; margin: 0.8em 0 0.3em; }
+.passage { }
+.title-screen { text-align: center; padding-top: 60px; }
+.title-screen h1 { font-size: 2.8em; }
+.kicker {
+  font-family: monospace;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #888;
+  margin-bottom: 8px;
+}
+.chain-mini {
+  font-family: monospace;
+  font-size: 0.85em;
+  color: #555;
+  margin: 16px 0;
+}
+.three-cards {
+  display: flex; gap: 16px; margin: 24px 0;
+}
+.card {
+  flex: 1; background: #fff; border: 1px solid #e5e0d8;
+  border-radius: 8px; padding: 16px; text-align: center;
+}
+.card.dim { opacity: 0.6; }
+.card-icon { font-size: 2em; margin-bottom: 8px; }
+.card h3 { margin: 0 0 4px; font-size: 0.95em; }
+.card em { color: #888; font-size: 0.85em; display: block; margin-top: 6px; }
+.two-cols { display: flex; gap: 20px; margin: 20px 0; }
+.col { flex: 1; background: #fff; border: 1px solid #e5e0d8; border-radius: 8px; padding: 18px; }
+.col.highlight { border-color: #0a66d6; background: #f0f6ff; }
+.two-zones { display: flex; gap: 20px; margin: 20px 0; }
+.zone { flex: 1; padding: 20px; border-radius: 8px; text-align: center; }
+.zone.locked { background: #fff5f5; border: 1px solid #ecc; }
+.zone.open { background: #f0faf0; border: 1px solid #bdd; }
+.example-box {
+  background: #1e1e1e; color: #d4d4d4; font-family: monospace;
+  padding: 16px; border-radius: 8px; margin: 16px 0; line-height: 1.8;
+  white-space: pre-wrap;
+}
+.example-box .ex-title { color: #888; font-size: 0.8em; margin-bottom: 6px; font-family: sans-serif; }
+.terminal-box {
+  background: #1e1e1e; border-radius: 8px; margin: 16px 0; overflow: hidden;
+}
+.term-header {
+  background: #333; color: #ccc; padding: 6px 12px; font-family: monospace; font-size: 0.8em;
+}
+.term-body {
+  padding: 12px 14px; font-family: monospace; font-size: 0.9em; line-height: 1.7;
+}
+.term-body .teal { color: #2dd4bf; }
+.term-body .blue { color: #60a5fa; }
+.term-body .white { color: #f8f8f8; }
+.term-body .grey { color: #999; }
+.aside {
+  font-size: 0.9em; color: #666; font-style: italic; margin-top: 12px;
+  border-left: 3px solid #ddd; padding-left: 12px;
+}
+.aside.warn { border-color: #c2410c; color: #9a3412; }
+.warn-box {
+  background: #fff5f5; border: 1px solid #ecc; border-radius: 8px;
+  padding: 16px; margin: 16px 0; line-height: 1.9;
+}
+.checklist { }
+.checklist p, .checklist div { margin: 8px 0; }
+.flow-diagram {
+  background: #fff; border: 1px solid #e5e0d8; border-radius: 8px;
+  padding: 20px; text-align: center; margin: 16px 0; font-family: monospace;
+  line-height: 2;
+}
+.layers-diagram {
+  background: #fff; border: 1px solid #e5e0d8; border-radius: 8px;
+  padding: 20px; margin: 16px 0; text-align: center; line-height: 2.2;
+}
+.boundary-diagram {
+  background: #1a1a1a; color: #ddd; border-radius: 8px;
+  padding: 20px; margin: 16px 0; font-family: monospace; line-height: 1.9;
+  text-align: center;
+}
+.boundary-diagram.safe { background: #0a2e1a; }
+.checkpoint-box {
+  background: #fefce8; border: 1px solid #e5d84c; border-radius: 8px;
+  padding: 16px; margin: 24px 0; line-height: 1.7;
+}
+.cp-title { font-weight: bold; color: #8b7500; margin-bottom: 6px; }
+.recap-chain {
+  text-align: center; font-size: 1.1em; margin: 20px 0; letter-spacing: 0.05em;
+}
+.progress-bar {
+  font-family: monospace; font-size: 0.8em; color: #666;
+  background: #eee; padding: 3px 10px; border-radius: 10px;
+}
+table {
+  width: 100%; border-collapse: collapse; margin: 16px 0;
+}
+th, td {
+  text-align: left; padding: 8px 12px; border-bottom: 1px solid #e5e0d8;
+}
+th { font-weight: 600; background: #faf7f2; }
+a { color: #0a66d6; text-decoration: none; }
+a:hover { text-decoration: underline; }
+#story-menu { margin-top: 12px; font-size: 0.85em; text-align: center; }

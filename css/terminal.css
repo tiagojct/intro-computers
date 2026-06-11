@@ -1,0 +1,64 @@
+/* terminal.css — janela de terminal falso (escura, independente do tema) */
+
+.term {
+  --t-bg:    #0c1118;
+  --t-bar:   #18222e;
+  --t-line:  #243240;
+  --t-ink:   #e8eef4;
+  --t-soft:  #9fb2c4;
+  --t-dim:   #6a8197;
+  --t-teal:  #2dd4bf;
+  --t-blue:  #56c2ff;
+  --t-amber: #f5b34a;
+  --t-green: #5fe08a;
+
+  margin-top: 22px;
+  background: var(--t-bg);
+  border: 1px solid var(--t-line);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  font-family: var(--mono);
+}
+
+.term-bar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 11px 14px;
+  background: var(--t-bar);
+  border-bottom: 1px solid var(--t-line);
+}
+.term-bar .tb { width: 12px; height: 12px; border-radius: 50%; }
+.term-bar .tb.r { background: #ff5f56; }
+.term-bar .tb.y { background: #ffbd2e; }
+.term-bar .tb.g { background: #27c93f; }
+.term-bar .title { margin-left: 10px; font-size: 12px; color: var(--t-dim); letter-spacing: .04em; }
+
+.term-body {
+  padding: 18px 20px;
+  font-size: clamp(13px, 1.45vw, 17px);
+  line-height: 1.65;
+  color: var(--t-ink);
+  min-height: 150px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.term-line { display: block; }
+.term-line .prompt { color: var(--t-teal); }
+.term-line .prompt::after { content: " "; }
+.term-line .path { color: var(--t-blue); }
+.term-line .cmd { color: var(--t-ink); }
+.term-line .out { color: var(--t-soft); }
+.term-line .ok { color: var(--t-green); }
+.term-line .warn { color: var(--t-amber); }
+.term-line .dim { color: var(--t-dim); }
+
+.term-cursor {
+  display: inline-block;
+  width: 9px; height: 1.05em;
+  background: var(--t-teal);
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
