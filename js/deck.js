@@ -14,6 +14,24 @@
   const counter = document.querySelector('.hud .count');
   const titleTag = document.querySelector('.slide-title-tag');
 
+  // ---- notas do orador (tecla `s`) ----
+  const notesPanel = document.querySelector('.notes-panel');
+  let notes = {};
+  try { notes = JSON.parse(document.getElementById('notes-data')?.textContent || '{}'); }
+  catch (e) { notes = {}; }
+  let notesOn = false;
+
+  function renderNotes() {
+    if (!notesPanel) return;
+    notesPanel.hidden = !notesOn;
+    if (!notesOn) return;
+    const id = slides[cur] && slides[cur].id;
+    const html = (id && notes[id]) || '<span class="np-empty">sem notas para este slide</span>';
+    notesPanel.innerHTML =
+      '<span class="np-tag">nota · ' + (cur + 1) + '/' + slides.length + '</span>' +
+      '<span class="np-body">' + html + '</span>';
+  }
+
   let cur = 0;       // indice do slide atual
   let step = 0;      // passos revelados no slide atual
   let overview = false;
@@ -32,6 +50,7 @@
     if (bar) bar.style.width = pct + '%';
     if (counter) counter.innerHTML = '<b>' + (cur + 1) + '</b> / ' + slides.length;
     if (titleTag) titleTag.textContent = slides[cur].dataset.title || '';
+    renderNotes();
 
     // hooks
     if (window.SlideHooks) {
@@ -159,6 +178,8 @@
         e.preventDefault(); toggleFullscreen(); break;
       case 't': case 'T':
         e.preventDefault(); if (!overview) retrigger(); break;
+      case 's': case 'S':
+        e.preventDefault(); notesOn = !notesOn; document.body.classList.toggle('show-notes', notesOn); renderNotes(); break;
     }
   });
 
@@ -173,5 +194,9 @@
   applySteps();
 
   // expoe para debug / hooks
-  window.Deck = { next, prev, gotoSlide, get index() { return cur; }, get step() { return step; } };
+  window.Deck = {
+    next, prev, gotoSlide,
+    toggleNotes() { notesOn = !notesOn; document.body.classList.toggle('show-notes', notesOn); renderNotes(); },
+    get index() { return cur; }, get step() { return step; },
+  };
 })();

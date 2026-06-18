@@ -614,6 +614,13 @@
       <div class="aside warn" data-step="4" style="margin-top:22px">
         Sem resposta clara, <b>não envies para a cloud</b>. Na dúvida, fala com o DPO.
       </div>
+
+      <div class="decision" data-step="5">
+        <span class="dlabel">Sem resposta clara às três:</span>
+        <span class="dopt no"><svg class="ic"><use href="#ic-x"/></svg> não enviar para a cloud</span>
+        <span class="dopt ok"><svg class="ic"><use href="#ic-shield"/></svg> usar modelo local</span>
+        <span class="dopt"><svg class="ic"><use href="#ic-check"/></svg> falar com o DPO</span>
+      </div>
     </div>
   </section>
 
@@ -707,7 +714,11 @@
         <span class="node warn">Agente</span>
       </div>
 
-      <div class="recap-final" data-step="1">
+      <div class="aside" data-step="1" style="margin-top:18px">
+        Antes de revelar: <b>que dados nunca devem sair da máquina?</b>
+      </div>
+
+      <div class="recap-final" data-step="2">
         Na cloud, os ficheiros <mark>atravessam uma fronteira</mark>.<br>
         Com dados de doentes: <b class="accent">modelo local</b>. Cloud só com contratos e consentimento.
       </div>
@@ -769,9 +780,45 @@
 
 <div class="slide-title-tag"></div>
 <div class="hud">
-  <span class="help">→ avançar · ← recuar · o grelha · f ecrã · t repetir</span>
+  <span class="help">→ avançar · ← recuar · o grelha · f ecrã · t repetir · s notas</span>
   <span class="count"></span>
 </div>
+
+<!-- Painel de notas do orador (tecla `s`). Escondido por omissao; so para o apresentador. -->
+<div class="notes-panel" hidden aria-live="polite"></div>
+
+<!-- Notas do orador, por slide (condensadas de SPEAKER.md). Renderizadas no painel acima. -->
+<script type="application/json" id="notes-data">
+{
+  "s-title": "Enquadra: hoje vamos da maquina fisica ate usar uma IA, sem dar nada por adquirido. <b>Pergunta:</b> quem ja abriu um terminal? (calibra o nivel).",
+  "s-map": "As tres perguntas do dia; a 3.&ordf; (ficheiros + IA) e a que importa mesmo. <b>Diz:</b> &laquo;no fim, vemos o mapa completo disto tudo&raquo; &mdash; cria reconhecimento no slide 27.",
+  "s-what": "Entrada &rarr; processamento &rarr; saida. Metafora: pedir uma analise &mdash; amostra, laboratorio, resultado.",
+  "s-hardware": "Tres pecas. No passo &laquo;Desligar&raquo;, <b>martela</b>: o que esta na memoria desaparece; no arquivo, fica. Fecho: tudo isto esta so <i>nesta</i> maquina &mdash; ate algo o enviar para fora (semente da fronteira).",
+  "s-software": "Hardware + instrucoes = trabalho feito. Metafora: o conhecimento clinico e o que torna util um profissional treinado.",
+  "s-os": "O intermediario entre ti e as pecas. Windows / macOS / Linux.",
+  "s-file": "Informacao com um nome. O fim do nome diz o tipo (.csv).",
+  "s-filesystem": "Pastas dentro de pastas = arquivo clinico (servico &rarr; processo &rarr; documentos). A maquina escreve o caminho numa linha so.",
+  "s-zones": "Zona do sistema (restrita) vs a tua zona. Impede estragar o sistema sem querer. Metafora: armazem da farmacia vs o teu gabinete.<br><b>&#10003; VERIFICA (fim do bloco 1):</b> &laquo;O que se perde ao desligar &mdash; a memoria ou o arquivo?&raquo;",
+  "s-dotfiles": "<i>(opcional)</i> Definicoes fora de vista, como a calibracao de um aparelho. Comecam por ponto. Vais ve-los ao configurar as ferramentas.",
+  "s-shell": "Clicar (5 passos) vs escrever (1 linha). O que muda e o esforco.",
+  "s-terminal": "Deixa o terminal escrever sozinho; depois a legenda colorida: utilizador / pasta / ordem / resposta. Tranquiliza: e so texto que entra e texto que sai.",
+  "s-automate": "<i>(opcional)</i> Uma ordem, mil ficheiros. Trabalho repetitivo sem esforco.",
+  "s-packages": "Gestor de pacotes = so de fontes verificadas. Metafora: formulario de medicamentos aprovados. Nunca um programa qualquer apanhado na net.",
+  "s-internet": "Pedido &rarr; servidor &rarr; resposta. Metafora: amostra ao laboratorio externo, relatorio de volta.",
+  "s-api": "So um impresso de requisicao: campos fixos, sem ambiguidade.",
+  "s-apikey": "A tua credencial pessoal. Nao partilhar, nao expor. <b>Pode ter custos.</b> Metafora: o teu login de prescritor.",
+  "s-model": "O &laquo;cerebro emprestado&raquo;: programa enorme num datacenter, nao no teu portatil. A chave da acesso; ha muitos modelos, capacidades e precos diferentes.<br><b>&#10003; VERIFICA (fim do bloco 2):</b> &laquo;Onde corre o modelo &mdash; no teu portatil ou num datacenter?&raquo;",
+  "s-agent": "Le, escreve, executa. Instala-se com o gestor de pacotes. <b>&#9654; TRANSICAO:</b> aqui, Esc/f para sair e abrir o <b>TERMINAL REAL</b>; mostra o OpenCode a correr com um comando real. (Volta depois ao slide seguinte.)",
+  "s-aierra": "Pode inventar com confianca; nao conhece o teu doente. <b>Confirma sempre.</b> Assistente, nao substituto &mdash; a responsabilidade clinica e tua.",
+  "s-boundary": "<b>O coracao da apresentacao.</b> Para pensar, o agente envia os teus ficheiros para fora. Deixa o fluxo atravessar a linha. Frase para assentar: &laquo;o conteudo dos teus ficheiros sai da maquina&raquo;. <b>Faz uma pausa aqui.</b>",
+  "s-patient": "E tratamento de dados (RGPD). As tres perguntas: contrato? onde ficam? base legal/consentimento? Sem resposta clara aos tres &rarr; nao enviar para a cloud &middot; usar modelo local &middot; falar com o DPO.",
+  "s-local": "A opcao segura para dados identificaveis: corre na propria maquina (Ollama), do mesmo gestor de pacotes. Mais lento, menos capaz &mdash; mas <b>privado por construcao</b>.",
+  "s-start": "<i>(opcional)</i> Checklist de arranque. Lembra que nomes/versoes mudam &mdash; procura a documentacao atual.",
+  "s-glossary": "&laquo;Levem isto.&raquo; Pagina de consulta PT.",
+  "s-recap": "<b>&#10003; VERIFICA (recapitulacao):</b> antes de revelar, pede a turma para reconstruir a cadeia (maquina &rarr; &hellip; &rarr; agente). Depois reforca: dados de doentes &rarr; modelo local; cloud so com contratos e consentimento.",
+  "s-schema": "A peca visual. Deixa os fios desenharem-se e os dados fluirem. &laquo;Reconhecem isto? E tudo o que vimos, ligado.&raquo; Termina aqui."
+}
+</script>
 
 <script src="vendor/anime.min.js"></script>
 <script src="js/terminal.js"></script>

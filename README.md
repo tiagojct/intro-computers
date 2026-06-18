@@ -33,6 +33,7 @@ Depois carregar `f` para ecrã inteiro.
 | `o` | grelha de visão geral (clicar num slide salta para ele) |
 | `f` | ecrã inteiro |
 | `t` | repetir a animação / o terminal do slide atual |
+| `s` | notas do orador do slide atual (painel discreto, só para o apresentador) |
 
 `#5` no URL abre diretamente no slide 5.
 
