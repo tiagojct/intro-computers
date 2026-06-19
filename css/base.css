@@ -276,6 +276,71 @@ mark {
   .cols { grid-template-columns: 1fr; }
 }
 
+/* ---------- notas do orador (tecla `s`) ---------- */
+
+.notes-panel {
+  position: fixed;
+  left: 20px; right: 20px; bottom: 44px;
+  max-width: 1180px;
+  margin: 0 auto;
+  z-index: 60;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  padding: 12px 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: clamp(13px, 1.25vw, 16px);
+  line-height: 1.4;
+  color: var(--ink);
+}
+.notes-panel[hidden] { display: none; }
+.notes-panel .np-tag {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+  flex: none;
+}
+.notes-panel .np-body { color: var(--ink-soft); }
+.notes-panel .np-body b { color: var(--ink); font-weight: 600; }
+.notes-panel .np-empty { color: var(--ink-dim); font-style: italic; }
+
+/* ---------- tira de decisao (RGPD, slide 22) ---------- */
+
+.decision {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.decision .dlabel {
+  font-family: var(--mono);
+  font-size: clamp(12px, 1.1vw, 14px);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  color: var(--warn);
+}
+.decision .dopt {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 6px 12px;
+  font-size: clamp(14px, 1.4vw, 18px);
+  font-weight: 600;
+  background: var(--panel);
+}
+.decision .dopt.no { border-color: color-mix(in srgb, var(--warn) 45%, var(--line)); color: var(--warn); }
+.decision .dopt.ok { border-color: color-mix(in srgb, var(--ok) 45%, var(--line)); color: var(--ok); }
+
 /* respeita reduzir movimento */
 @media (prefers-reduced-motion: reduce) {
   .slide, [data-step], .progress > i { transition-duration: .001ms !important; }

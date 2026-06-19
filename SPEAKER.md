@@ -3,6 +3,10 @@
 Apresentação para profissionais de saúde / investigadores clínicos.
 Controla com `→` (avançar passo/slide), `←` (recuar), `t` (repetir animação), `f` (ecrã inteiro), `o` (grelha).
 
+> **Notas no próprio deck:** carrega `s` para abrir um painel discreto com a nota condensada
+> de cada slide (inclui os pontos de **verificação de compreensão**). Este ficheiro é o guião
+> completo; o painel é o lembrete rápido durante a aula. Mostra-o só num ecrã de apresentador.
+
 **Tempo:** ~38 min com tudo; **~30 min** saltando os slides marcados *(opcional)*.
 **Cortes para 30 min:** saltar **10** (dotfiles), **13** (automatizar), **24** (primeiros passos).
 Na grelha (`o`) estes aparecem marcados "opcional".
