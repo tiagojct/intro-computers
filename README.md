@@ -51,37 +51,59 @@ vendor/anime.min.js   anime.js v3 (local, offline)
 SPEAKER.md            guião de locução (tempos, pontos-chave, transições, cortes)
 ```
 
-## Os 27 slides
+## Os 36 slides
 
-1. Título
+1. Título *(hero centrado)*
 2. O caminho de hoje (três perguntas; "no fim, o mapa completo")
 3. O que é um computador (entrada → processamento → saída)
-4. Hardware (processador / memória / armazenamento; desligar para o processador e esvazia a memória)
+4. Hardware (processador / memória / armazenamento; desligar)
 5. Software (máquina + instruções = trabalho feito)
-6. Sistema operativo (camadas; Windows / macOS / Linux ligados à camada do SO)
-7. O que é um ficheiro
-8. Organização dos ficheiros (árvore = arquivo clínico)
-9. Zona do sistema vs a tua zona
-10. Ficheiros ocultos (definições) *(opcional)*
-11. Duas formas de pedir o mesmo (clicar = 5 passos vs escrever = 1 linha)
-12. O terminal (comando real `ls`, com legenda das partes)
-13. Repetir sem esforço (varrimento + contador 0→1000) *(opcional)*
-14. Instalar programas (lista verificada; Homebrew / apt / npm)
-15. A internet (pedido / resposta)
-16. O que é uma API (impresso de requisição)
-17. Chave de API (+ custos)
-18. **O modelo — o cérebro emprestado** (portátil → chave → datacenter)
-19. O agente OpenCode (lê / escreve / executa; transição p/ terminal real — ver SPEAKER.md)
-20. A IA pode enganar-se — confirma sempre
-21. A fronteira — os ficheiros saem da máquina
-22. Dados de doentes (RGPD: contrato / localização / base legal + DPO)
-23. Modelo local (a opção segura para dados de doentes)
-24. Primeiros passos *(opcional)*
-25. Glossário PT
-26. Em resumo
-27. **O mapa** — esquema final só com símbolos e setas; fios desenham-se, dados fluem
+6. Sistema operativo (camadas; Windows / macOS / Linux)
+7. O que é um ficheiro (anatomia `nome` . `extensão`)
+8. **A extensão diz o tipo/programa** (.csv/.docx/.jpg/.pdf/.html → folha/texto/imagem/PDF/browser; browser → chatbot)
+9. Organização dos ficheiros (árvore = arquivo clínico)
+10. O mesmo caminho (Windows `\` + `C:` vs macOS/Linux `/`)
+11. Zona do sistema vs a tua zona
+12. Ficheiros ocultos (definições) *(opcional)*
+13. Duas formas de pedir o mesmo (clicar vs escrever)
+14. O terminal (comando real `ls`, com legenda)
+15. **Pasta de trabalho** (onde o agente atua — working directory)
+16. Repetir sem esforço (varrimento + contador) *(opcional)*
+17. Instalar programas (lista verificada; Homebrew / apt / npm)
+18. A internet (pedido / resposta)
+19. O que é uma API (impresso de requisição)
+20. Chave de API (+ guarda segura + custos)
+21. O modelo — o cérebro emprestado
+22. O agente OpenCode (lê / escreve / executa; transição p/ terminal real)
+23. **Prompt + contexto** (janela de contexto: o que o modelo vê)
+24. **Permissões do agente** (propõe e pede autorização)
+25. A IA pode enganar-se — confirma sempre
+26. A fronteira — os ficheiros saem da máquina
+27. Dados de doentes (RGPD: contrato / localização / base legal + DPO)
+28. **Pseudonimização** (tirar identificadores antes de usar)
+29. Modelo local (opção segura; requisitos de hardware)
+30. Primeiros passos *(opcional)*
+31. Glossário PT (termo + definição + exemplo)
+32. Quiz 1/2 — escolha múltipla, revela por passos *(opcional)*
+33. Quiz 2/2 — risco / RGPD / agente *(opcional)*
+34. **Termos não falados** (lista para discussão aberta)
+35. Em resumo
+36. **O mapa** — esquema final só com símbolos e setas
 
-Slides marcados *(opcional)* aparecem com etiqueta "opcional" na grelha (`o`); cortá-los dá ~30 min.
+Slides marcados *(opcional)* aparecem com etiqueta "opcional" na grelha (`o`).
+
+## Design
+
+Linguagem **experimental**: composições centradas (sem o esquema fixo título-ao-canto), focos
+de tipografia/ícones gigantes, e a **cor de fundo muda por secção** (azul→fundamentos,
+verde→ferramentas, âmbar→rede, indigo→modelo/agente, terracota→risco/RGPD, verde→local) com
+transição suave — motor em `js/deck.js` (mapa `SECTION`/`GROUPS`).
+
+Conteúdo dimensionado por **auto-fit**: se um slide for mais alto que o ecrã, encolhe sozinho.
+
+**Uma ideia por slide:** o ecrã é o cartaz (título curto + foco animado); o detalhe vive nas
+notas do orador (`s`). **Termos clicáveis** no slide "Não falámos destes" e no glossário abrem
+uma janela com definição PT + link Wikipédia (`<dialog class="term-modal">` + `#term-data`).
 
 ## Notas
 

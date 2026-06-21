@@ -53,9 +53,12 @@
     ],
   };
   let termsDone = new Set();
+  let boundaryCrossed = false;
   function runTerm(id) {
     const el = document.getElementById(id);
-    if (el && window.typeInto) window.typeInto(el, TERMS[id]);
+    if (el && window.typeInto) window.typeInto(el, TERMS[id], {
+      onDone() { if (window.Deck && window.Deck.refit) window.Deck.refit(); },
+    });
   }
 
   // ---- reinicio de estado (classes de que o CSS depende) ----
@@ -86,11 +89,18 @@
       A({ targets: text, opacity: [0, 1], translateY: [18, 0], duration: 620, delay: A.stagger(80), easing: 'easeOutCubic' });
     }
     // contentores de diagrama: aparecem com leve subida (filhos [data-step] mantem-se escondidos)
-    const blocks = $('.ioflow, .machine, .sw-stage, .layers, .filecard-stage, .tree, .zones, .dot-list, .shell-vs, .term, .registry-flow, .rr-stage, .api-stage, .model-flow, .agent-caps, .boundary-stage, .gov-list, .glossary, .key-rules, .keycard, .schema', slideEl)
+    const blocks = $('.ioflow, .machine, .sw-stage, .layers, .filecard-stage, .tree, .pathset, .zones, .dot-list, .shell-vs, .term, .registry-flow, .rr-stage, .api-stage, .model-flow, .agent-caps, .boundary-stage, .gov-list, .glossary, .quiz, .key-rules, .keycard, .schema, .frame, .permcard, .redact, .parklist, .ctx-items, .filename, .ftypes', slideEl)
       .filter(n => !n.closest('[data-step]'));
     if (blocks.length) {
       A.set(blocks, { opacity: 0, translateY: 22 });
       A({ targets: blocks, opacity: [0, 1], translateY: [22, 0], duration: 720, delay: 180, easing: 'easeOutCubic' });
+    }
+    // foco gigante: entra com escala + desfoque
+    const giants = $('.giant, .bigword', slideEl).filter(n => !n.closest('[data-step]'));
+    if (giants.length) {
+      A.set(giants, { opacity: 0, scale: 0.8, filter: 'blur(8px)' });
+      A({ targets: giants, opacity: [0, 1], scale: [0.8, 1], filter: ['blur(8px)', 'blur(0px)'],
+          duration: 900, delay: A.stagger(120, { start: 120 }), easing: 'easeOutCubic' });
     }
     // sublinhado desenhado a mao
     const ul = $('.uline path', slideEl);
@@ -155,6 +165,7 @@
       clearTimers();
       resetState(slideEl);
       termsDone = new Set();
+      boundaryCrossed = false;
       const id = slideEl.id;
       const base = opts.retrigger ? 80 : 460;
 
@@ -170,10 +181,10 @@
       if (slideEl.querySelector('.roadmap')) later(() => slideEl.querySelector('.roadmap')?.classList.add('go'), 320);
       if (id === 's-recap') later(() => slideEl.querySelector('.recap-chain')?.classList.add('go'), 320);
       if (id === 's-file')  later(() => slideEl.querySelector('.filecard')?.classList.add('draw'), 460);
-      if (id === 's-software') later(() => {
-        slideEl.querySelector('.inert-box')?.classList.add('powered');
-        slideEl.querySelector('.sw-instr')?.classList.add('run');
-        slideEl.querySelector('.sw-stage')?.classList.add('go');
+      if (id === 's-software' && !REDUCED) later(() => {
+        A({ targets: slideEl.querySelector('.sw-box.machine'), boxShadow: ['0 0 0 rgba(10,102,214,0)', '0 0 36px -10px rgba(10,102,214,.6)'], duration: 700, direction: 'alternate', loop: 4, easing: 'easeInOutSine' });
+        const r = slideEl.querySelector('.sw-box.result');
+        if (r) A({ targets: r, scale: [0.9, 1], opacity: [0, 1], duration: 600, easing: 'easeOutBack' });
       }, base);
       if (id === 's-automate') {
         later(() => slideEl.querySelector('.auto-files')?.classList.add('scanning'), 350);
@@ -202,21 +213,24 @@
               direction: 'alternate', loop: true, easing: 'easeInOutSine' });
         }
         if (id === 's-boundary') {
-          // ficheiros a atravessar a fronteira (distancia real -> cruzam a linha)
-          const stage = slideEl.querySelector('.boundary-stage');
-          const docs = $('.side.local .docfile', slideEl);
-          if (stage && docs.length) {
-            const dist = Math.max(340, stage.offsetWidth * 0.6);
-            docs.forEach((d, i) => L({
-              targets: d, translateX: [0, dist], easing: 'easeInOutSine',
-              duration: 2400, loop: true, delay: i * 700 + 900,
-              opacity: [{ value: [0, 1], duration: 300 }, { value: 1, duration: 1500 }, { value: 0, duration: 600 }],
-            }));
-          }
+          // ficheiros visiveis na maquina, em repouso (a travessia e' no passo)
+          A.set($('.side.local .docfile', slideEl), { translateX: 0, opacity: 1 });
         }
         if (id === 's-local') {
           const sh = slideEl.querySelector('.side.local .ic');
           if (sh) L({ targets: sh, scale: [1, 1.08], duration: 1200, direction: 'alternate', loop: true, easing: 'easeInOutSine' });
+        }
+        if (id === 's-file') {
+          const ext = slideEl.querySelector('.fn-ext');
+          if (ext) L({ targets: ext, scale: [1, 1.08], duration: 1100, direction: 'alternate', loop: true, easing: 'easeInOutSine' });
+        }
+        if (id === 's-workdir') {
+          const f = slideEl.querySelector('.giant .ic');
+          if (f) L({ targets: f, scale: [1, 1.06], duration: 1300, direction: 'alternate', loop: true, easing: 'easeInOutSine' });
+        }
+        if (id === 's-perms') {
+          const yes = slideEl.querySelector('.perm-yes');
+          if (yes) L({ targets: yes, scale: [1, 1.07], duration: 900, direction: 'alternate', loop: true, easing: 'easeInOutSine' });
         }
         if (id === 's-model') {
           const dc = slideEl.querySelector('.mf-node.big .ic-lg');
@@ -258,6 +272,21 @@
       }
       if (id === 's-local') {
         slideEl.querySelector('.boundary-stage')?.classList.toggle('sealed', step >= 1);
+      }
+      if (id === 's-boundary') {
+        const docs = $('.side.local .docfile', slideEl);
+        const stage = slideEl.querySelector('.boundary-stage');
+        if (docs.length && stage) {
+          if (step >= 1 && !boundaryCrossed && !REDUCED) {
+            boundaryCrossed = true;
+            const dist = Math.max(360, stage.offsetWidth * 0.52);
+            A({ targets: docs, translateX: [0, dist], opacity: [1, 0.25], easing: 'easeInOutSine',
+                duration: 1500, delay: A.stagger(220) });
+          } else if (step < 1) {
+            boundaryCrossed = false;
+            A.set(docs, { translateX: 0, opacity: 1 });
+          }
+        }
       }
 
       // terminal escondido atras de um passo -> arranca ao aparecer

@@ -38,7 +38,7 @@
   font-size: clamp(13px, 1.45vw, 17px);
   line-height: 1.65;
   color: var(--t-ink);
-  min-height: 150px;
+  min-height: 108px;
   white-space: pre-wrap;
   word-break: break-word;
 }

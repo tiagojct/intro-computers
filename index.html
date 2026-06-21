@@ -45,12 +45,12 @@
 
 <div class="deck">
 
-  <!-- ============ 1 · TITULO ============ -->
-  <section class="slide" id="s-title" data-slide data-title="Introducao">
+  <!-- ============ 1 · TITULO (hero) ============ -->
+  <section class="slide center" id="s-title" data-slide data-title="Introducao">
     <div class="slide-inner">
       <div class="kicker">Computação para a prática clínica</div>
-      <h1>Do hardware<br>ao <span class="uline">agente<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path pathLength="640" d="M3 13 C 70 3, 130 19, 190 9 S 270 5, 297 12"/></svg></span>.</h1>
-      <p class="aside" style="margin-top:22px">Da máquina à inteligência artificial.<br>Um passo de cada vez.</p>
+      <h1 class="bigword">Do hardware<br>ao <span class="accent">agente</span></h1>
+      <p class="aside" style="margin-top:24px">Da máquina à inteligência artificial. Um passo de cada vez.</p>
       <div class="chain-mini">
         <span>Máquina</span><span>Programas</span><span>Sistema</span><span>Ficheiros</span>
         <span>Comandos</span><span>Instalar</span><span>Internet</span><span><b>Agente</b></span>
@@ -59,7 +59,7 @@
   </section>
 
   <!-- ============ 2 · MAPA ============ -->
-  <section class="slide" id="s-map" data-slide data-title="O caminho">
+  <section class="slide center" id="s-map" data-slide data-title="O caminho">
     <div class="slide-inner">
       <div class="kicker">O caminho de hoje</div>
       <h2>Três perguntas, por ordem</h2>
@@ -73,11 +73,10 @@
   </section>
 
   <!-- ============ 3 · O QUE E UM COMPUTADOR ============ -->
-  <section class="slide" id="s-what" data-slide data-title="O que e um computador">
+  <section class="slide center" id="s-what" data-slide data-title="O que e um computador">
     <div class="slide-inner">
       <div class="kicker">A ideia mais básica</div>
       <h2>Recebe, processa, devolve</h2>
-      <p class="lead">Por mais complicado que pareça, é sempre este ciclo.</p>
 
       <div class="ioflow">
         <div class="io-token"></div>
@@ -87,37 +86,30 @@
         <div class="io-arrow"><svg class="ic"><use href="#ic-arrow"/></svg></div>
         <div class="iobox"><svg class="ic ic-lg"><use href="#ic-monitor"/></svg><h3>Saída</h3><p>o resultado</p></div>
       </div>
-
-      <div class="aside" data-step="1" style="margin-top:26px">
-        Como pedir uma análise: <b>amostra</b> → laboratório → <b>resultado</b>.
-      </div>
     </div>
   </section>
 
   <!-- ============ 4 · HARDWARE ============ -->
-  <section class="slide" id="s-hardware" data-slide data-title="Hardware">
+  <section class="slide center" id="s-hardware" data-slide data-title="Hardware">
     <div class="slide-inner">
-      <div class="kicker">A máquina física · hardware</div>
-      <h2>As três peças que importam</h2>
+      <div class="kicker">A máquina física</div>
+      <h2>Três peças</h2>
 
       <div class="machine">
         <div class="hw cpu" data-step="1">
           <svg class="ic ic-lg"><use href="#ic-cpu"/></svg>
           <h3>Processador</h3>
-          <p>Faz o trabalho. Calcula e executa as instruções.</p>
-          <div class="persist">sempre a trabalhar</div>
+          <div class="persist">faz o trabalho</div>
         </div>
         <div class="hw ram" data-step="2">
           <svg class="ic ic-lg"><use href="#ic-ram"/></svg>
-          <h3>Memória (RAM)</h3>
-          <p>A secretária: só o que estás a usar neste momento.</p>
+          <h3>Memória</h3>
           <div class="vol-content"><i></i><i></i><i></i><i></i></div>
           <div class="persist">temporária</div>
         </div>
         <div class="hw disk" data-step="3">
           <svg class="ic ic-lg"><use href="#ic-disk"/></svg>
           <h3>Armazenamento</h3>
-          <p>O arquivo: os ficheiros ficam guardados.</p>
           <div class="vol-content"><i></i><i></i><i></i><i></i></div>
           <div class="persist">permanente</div>
         </div>
@@ -127,54 +119,44 @@
         <span class="power-btn"><svg class="ic"><use href="#ic-power"/></svg> Desligar</span>
         <span class="power-note">→ memória vazia · arquivo intacto.</span>
       </div>
-
-      <div class="aside" data-step="5" style="margin-top:22px">
-        Tudo isto está só <b>nesta</b> máquina — até algo o enviar para fora.
-      </div>
     </div>
   </section>
 
   <!-- ============ 5 · SOFTWARE ============ -->
-  <section class="slide" id="s-software" data-slide data-title="Software">
+  <section class="slide center" id="s-software" data-slide data-title="Software">
     <div class="slide-inner">
-      <div class="kicker">As instruções · software</div>
+      <div class="kicker">As instruções</div>
       <h2>Sozinha, não faz nada</h2>
-      <p class="lead">O software são as instruções que dizem ao hardware o que fazer.</p>
 
-      <div class="sw-stage">
-        <div class="inert-box">
+      <div class="sw-eq">
+        <div class="sw-box machine">
           <svg class="ic ic-lg"><use href="#ic-cpu"/></svg>
-          <span class="ib-off">a máquina<br><i>ligada, mas sem saber o que fazer</i></span>
-          <span class="ib-on">a máquina<br><i>agora sabe: está a executar</i></span>
+          <span>a máquina</span>
         </div>
-        <div class="sw-op">+</div>
-        <div class="sw-instr">
-          <div class="sw-instr-h">o software (as instruções)</div>
-          <div class="ln"><span class="kw">abrir</span> a lista de doentes</div>
-          <div class="ln"><span class="kw">escolher</span> os com mais de 65 anos</div>
-          <div class="ln"><span class="kw">calcular</span> a tensão média</div>
-          <div class="ln"><span class="kw">guardar</span> o resultado</div>
+        <span class="sw-sign">+</span>
+        <div class="sw-box instr">
+          <div class="sw-h">o software</div>
+          <div class="ln"><span class="kw">abrir</span> a lista</div>
+          <div class="ln"><span class="kw">filtrar</span> &gt; 65 anos</div>
+          <div class="ln"><span class="kw">calcular</span> a média</div>
+          <div class="ln"><span class="kw">guardar</span></div>
         </div>
-        <div class="sw-op">=</div>
-        <div class="result-box">
+        <span class="sw-sign">=</span>
+        <div class="sw-box result">
           <svg class="ic ic-lg"><use href="#ic-check"/></svg>
-          <span>trabalho<br>feito</span>
+          <span>trabalho feito</span>
         </div>
       </div>
 
-      <div class="aside" style="margin-top:24px">
-        O <b>software</b> é para o hardware o que o conhecimento clínico é para quem o tem.
-      </div>
+      <div class="aside" data-step="1" style="margin-top:22px">A máquina + as instruções = o trabalho feito.</div>
     </div>
   </section>
 
   <!-- ============ 6 · SISTEMA OPERATIVO ============ -->
-  <section class="slide" id="s-os" data-slide data-title="Sistema Operativo">
+  <section class="slide center" id="s-os" data-slide data-title="Sistema Operativo">
     <div class="slide-inner">
-      <div class="kicker">O programa que manda em todos · sistema operativo</div>
+      <div class="kicker">O programa que manda em todos</div>
       <h2>Quem organiza tudo</h2>
-      <p class="lead">Entre ti e o hardware há um programa principal que gere as peças,
-        abre os teus programas e guarda os ficheiros.</p>
 
       <div class="layers">
         <div class="layer you" data-step="1"><svg class="ic"><use href="#ic-monitor"/></svg><div><h3>Tu e os teus programas</h3></div><span class="role">clicas e escreves</span></div>
@@ -192,23 +174,45 @@
     </div>
   </section>
 
-  <!-- ============ 7 · O QUE E UM FICHEIRO ============ -->
-  <section class="slide" id="s-file" data-slide data-title="O que e um ficheiro">
+  <!-- ============ 7 · O QUE E UM FICHEIRO (anatomia) ============ -->
+  <section class="slide center" id="s-file" data-slide data-title="O que e um ficheiro">
     <div class="slide-inner">
       <div class="kicker">A unidade de tudo</div>
       <h2>O que é um ficheiro?</h2>
+      <p class="lead">Informação guardada com um nome.</p>
 
-      <div class="filecard-stage">
-        <div class="filecard">
-          <svg class="ic ic-xl"><use href="#ic-file"/></svg>
-          <div class="fname">coorte.csv</div>
-          <div class="flines"><i></i><i></i><i></i><i></i></div>
-        </div>
-        <div class="file-explain">
-          <p class="lead" style="margin-top:0" data-step="1">Informação guardada com um nome. Tudo são ficheiros.</p>
-          <div class="aside" data-step="2" style="margin-top:20px">O fim do nome diz o tipo:
-            <b>.csv</b> = folha de cálculo.</div>
-        </div>
+      <div class="filename" data-step="1">
+        <span class="fn-name">coorte</span><span class="fn-dot">.</span><span class="fn-ext">csv</span>
+      </div>
+      <div class="fn-labels" data-step="1">
+        <span class="fl-name">o nome</span>
+        <span class="fl-ext">a extensão</span>
+      </div>
+
+      <div class="aside" data-step="2" style="margin-top:20px">
+        Antes do ponto, o <b>nome</b>. Depois do ponto, a <b>extensão</b> — é ela que diz o <b>tipo</b>.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7b · TIPOS DE FICHEIRO -> SOFTWARE ============ -->
+  <section class="slide center" id="s-filetypes" data-slide data-title="Tipos de ficheiro">
+    <div class="slide-inner">
+      <div class="kicker">A extensão manda</div>
+      <h2>A extensão diz que programa abre</h2>
+      <p class="lead">A extensão define como os dados estão guardados — e que programa o sistema usa para abrir.</p>
+
+      <div class="ftypes" data-step="1">
+        <div class="ft-head"><span>extensão</span><span>o que é</span><span>abre com</span></div>
+        <div class="ft-row"><span class="ft-ext">.csv</span><span>tabela de dados</span><span>folha de cálculo</span></div>
+        <div class="ft-row"><span class="ft-ext">.docx</span><span>texto</span><span>processador de texto</span></div>
+        <div class="ft-row"><span class="ft-ext">.jpg</span><span>imagem</span><span>editor de imagem</span></div>
+        <div class="ft-row"><span class="ft-ext">.pdf</span><span>documento</span><span>leitor de PDF</span></div>
+        <div class="ft-row bridge"><span class="ft-ext">.html</span><span>página web</span><span>browser</span></div>
+      </div>
+
+      <div class="aside" data-step="2" style="margin-top:18px">
+        O <b>browser</b> abre a web — e é num browser que, hoje, falas com um <b>chatbot</b>.
       </div>
     </div>
   </section>
@@ -239,8 +243,32 @@
     </div>
   </section>
 
+  <!-- ============ 8b · O MESMO CAMINHO (Windows vs macOS) ============ -->
+  <section class="slide center" id="s-paths" data-slide data-title="O mesmo caminho">
+    <div class="slide-inner">
+      <div class="kicker">O mesmo ficheiro, dois sistemas</div>
+      <h2>O caminho completo</h2>
+      <p class="lead">A mesma estrutura. Muda só a forma de a escrever.</p>
+
+      <div class="pathset">
+        <div class="pathrow">
+          <span class="os">Windows</span>
+          <code class="path"><span class="sw">C:\</span>Users<span class="sw">\</span>rosa<span class="sw">\</span>Hospital<span class="sw">\</span>Cardiologia<span class="sw">\</span>Doente-0412<span class="sw">\</span><b>exame.pdf</b></code>
+        </div>
+        <div class="pathrow" data-step="1">
+          <span class="os">macOS</span>
+          <code class="path"><span class="sl">/</span>Users<span class="sl">/</span>rosa<span class="sl">/</span>Hospital<span class="sl">/</span>Cardiologia<span class="sl">/</span>Doente-0412<span class="sl">/</span><b>exame.pdf</b></code>
+        </div>
+      </div>
+
+      <div class="aside" data-step="2" style="margin-top:22px">
+        Windows usa <b>\</b> e uma letra de unidade (<b>C:</b>); macOS e Linux usam <b>/</b>. O resto é igual.
+      </div>
+    </div>
+  </section>
+
   <!-- ============ 9 · SISTEMA vs UTILIZADOR ============ -->
-  <section class="slide" id="s-zones" data-slide data-title="Zonas da maquina">
+  <section class="slide center" id="s-zones" data-slide data-title="Zonas da maquina">
     <div class="slide-inner">
       <div class="kicker">Onde podes e onde não deves mexer</div>
       <h2>A zona do sistema vs a tua zona</h2>
@@ -262,14 +290,11 @@
         </div>
       </div>
 
-      <div class="aside" data-step="3" style="margin-top:22px">
-        Impede-te de <b>estragar o sistema sem querer</b>.
-      </div>
     </div>
   </section>
 
   <!-- ============ 10 · DOTFILES ============ -->
-  <section class="slide optional" id="s-dotfiles" data-slide data-title="Ficheiros ocultos">
+  <section class="slide optional center" id="s-dotfiles" data-slide data-title="Ficheiros ocultos">
     <div class="slide-inner">
       <div class="kicker">Configurações fora de vista</div>
       <h2>Ficheiros ocultos</h2>
@@ -295,7 +320,7 @@
   </section>
 
   <!-- ============ 11 · SHELL ============ -->
-  <section class="slide" id="s-shell" data-slide data-title="Dar ordens por texto">
+  <section class="slide center" id="s-shell" data-slide data-title="Dar ordens por texto">
     <div class="slide-inner">
       <div class="kicker">Falar com a máquina por escrito</div>
       <h2>Duas formas de pedir o mesmo</h2>
@@ -320,14 +345,11 @@
         </div>
       </div>
 
-      <div class="aside" data-step="3" style="margin-top:22px">
-        Mais uma <b>indicação clara</b> do que um formulário.
-      </div>
     </div>
   </section>
 
   <!-- ============ 12 · TERMINAL ============ -->
-  <section class="slide" id="s-terminal" data-slide data-title="O terminal">
+  <section class="slide center" id="s-terminal" data-slide data-title="O terminal">
     <div class="slide-inner">
       <div class="kicker">A janela onde se escreve</div>
       <h2>O terminal</h2>
@@ -346,14 +368,22 @@
         <div class="leg" data-step="4"><span class="sw grey"></span><div>por baixo — a <b>resposta</b> da máquina</div></div>
       </div>
 
-      <div class="aside" data-step="5" style="margin-top:18px">
-        Menos bonito. Mais <b>direto, exato e repetível</b>.
-      </div>
+    </div>
+  </section>
+
+  <!-- ============ 12b · PASTA DE TRABALHO ============ -->
+  <section class="slide center" id="s-workdir" data-slide data-title="Pasta de trabalho">
+    <div class="slide-inner">
+      <div class="kicker">Onde o agente trabalha</div>
+      <span class="giant"><svg class="ic"><use href="#ic-folder"/></svg></span>
+      <h2 style="margin-top:8px">A pasta do projeto</h2>
+      <p class="lead">Abres o terminal <b>dentro de uma pasta</b> — e é só nessa pasta que o agente lê e escreve.</p>
+      <div class="aside" data-step="1" style="margin-top:18px">Tudo o que está fora dessa pasta fica de fora. É o teu espaço de trabalho.</div>
     </div>
   </section>
 
   <!-- ============ 13 · AUTOMATIZACAO ============ -->
-  <section class="slide optional" id="s-automate" data-slide data-title="Repetir sem esforco">
+  <section class="slide optional center" id="s-automate" data-slide data-title="Repetir sem esforco">
     <div class="slide-inner">
       <div class="kicker">Porque é que isto interessa</div>
       <h2>O que é exato, repete-se</h2>
@@ -420,7 +450,7 @@
   </section>
 
   <!-- ============ 15 · INTERNET ============ -->
-  <section class="slide" id="s-internet" data-slide data-title="A internet">
+  <section class="slide center" id="s-internet" data-slide data-title="A internet">
     <div class="slide-inner">
       <div class="kicker">A internet não é magia</div>
       <h2>Pedido e resposta</h2>
@@ -446,14 +476,11 @@
         <span class="res" data-step="2">← resposta (recebes os resultados)</span>
       </div>
 
-      <div class="aside" data-step="3" style="margin-top:18px">
-        Como enviar uma amostra e esperar o relatório.
-      </div>
     </div>
   </section>
 
   <!-- ============ 16 · API ============ -->
-  <section class="slide" id="s-api" data-slide data-title="O que e uma API">
+  <section class="slide center" id="s-api" data-slide data-title="O que e uma API">
     <div class="slide-inner">
       <div class="kicker">A forma do pedido</div>
       <h2>Só um impresso de requisição</h2>
@@ -475,38 +502,26 @@
         </div>
       </div>
 
-      <div class="aside" data-step="3" style="margin-top:18px">O impresso que o laboratório aceita: campos, sem ambiguidade.</div>
     </div>
   </section>
 
   <!-- ============ 17 · CHAVE DE API ============ -->
-  <section class="slide" id="s-apikey" data-slide data-title="Chave de API">
+  <section class="slide center" id="s-apikey" data-slide data-title="Chave de API">
     <div class="slide-inner">
       <div class="kicker">A tua credencial</div>
       <h2>A chave de API</h2>
-      <p class="lead">Uma chave que te identifica no serviço. É pessoal.</p>
-
-      <div data-step="1">
-        <div class="keycard">
-          <svg class="ic"><use href="#ic-key"/></svg>
-          <span class="val">a tua chave pessoal · • • • • • •</span>
-        </div>
+      <div class="keycard" style="margin-top:18px">
+        <svg class="ic"><use href="#ic-key"/></svg>
+        <span class="val">a tua chave pessoal · • • • • • •</span>
       </div>
-
-      <div class="key-rules">
-        <div class="key-rule good" data-step="2"><svg class="ic"><use href="#ic-check"/></svg> <b>Identifica-te</b> ao serviço: ele sabe que o pedido é teu.</div>
-        <div class="key-rule bad" data-step="3"><svg class="ic"><use href="#ic-x"/></svg> <b>Nunca</b> a partilhes nem a escrevas onde outros a vejam.</div>
-        <div class="key-rule" data-step="4"><svg class="ic"><use href="#ic-key"/></svg> <b>Pode ter custos:</b> cada pedido ao serviço pode ser pago.</div>
-      </div>
-
-      <div class="aside warn" data-step="5" style="margin-top:22px">
-        Como o teu <b>login de prescritor</b>: é tua, é a tua responsabilidade.
+      <div class="aside warn" data-step="1" style="margin-top:22px">
+        É <b>tua</b>. Nunca a partilhes. Guarda-a em segurança.
       </div>
     </div>
   </section>
 
   <!-- ============ 18 · O MODELO ============ -->
-  <section class="slide" id="s-model" data-slide data-title="O modelo">
+  <section class="slide center" id="s-model" data-slide data-title="O modelo">
     <div class="slide-inner">
       <div class="kicker">O que está do outro lado</div>
       <h2>O modelo — o cérebro emprestado</h2>
@@ -529,7 +544,7 @@
   <!-- ============ 19 · AGENTE ============ -->
   <!-- NOTA APRESENTADOR: aqui, fecha a apresentacao (Esc/f) e abre o TERMINAL REAL.
        Mostra o OpenCode a correr com um comando real. Ver SPEAKER.md. -->
-  <section class="slide" id="s-agent" data-slide data-title="O agente (OpenCode)"
+  <section class="slide center" id="s-agent" data-slide data-title="O agente (OpenCode)"
            data-note="Fecha a apresentacao e abre o terminal real: mostra o OpenCode a correr.">
     <div class="slide-inner">
       <div class="kicker">Juntando tudo: o agente</div>
@@ -545,13 +560,46 @@
 
       <div class="term" data-step="4">
         <div class="term-bar"><span class="tb r"></span><span class="tb y"></span><span class="tb g"></span><span class="title">opencode</span></div>
-        <div class="term-body" id="term-opencode" style="min-height:130px"></div>
+        <div class="term-body" id="term-opencode" style="min-height:100px"></div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 19 · A IA PODE ERRAR ============ -->
-  <section class="slide" id="s-aierra" data-slide data-title="A IA pode enganar-se">
+  <!-- ============ 19b · PROMPT + CONTEXTO ============ -->
+  <section class="slide center" id="s-prompt" data-slide data-title="Prompt e contexto">
+    <div class="slide-inner">
+      <div class="kicker">Como falas com o modelo</div>
+      <h2>O prompt e o que ele vê</h2>
+      <p class="lead">O <b>prompt</b> é o que escreves. Mas o modelo só vê o que cabe na <b>janela de contexto</b>.</p>
+      <div class="frame" data-label="janela de contexto" data-step="1" style="margin-top:26px;max-width:640px">
+        <div class="ctx-items">
+          <span class="ctx"><svg class="ic"><use href="#ic-doc"/></svg> ficheiros abertos</span>
+          <span class="ctx"><svg class="ic"><use href="#ic-edit"/></svg> a tua pergunta</span>
+        </div>
+      </div>
+      <div class="aside warn" data-step="2" style="margin-top:18px">O que fica <b>fora</b> da janela, o modelo não conhece. Tu escolhes o que entra.</div>
+    </div>
+  </section>
+
+  <!-- ============ 19c · PERMISSOES ============ -->
+  <section class="slide center" id="s-perms" data-slide data-title="Permissões do agente">
+    <div class="slide-inner">
+      <div class="kicker">Quem manda és tu</div>
+      <h2>O agente pede autorização</h2>
+      <p class="lead">Antes de escrever ou correr algo, o agente <b>propõe</b> e espera que aproves.</p>
+      <div class="permcard" data-step="1" style="margin-top:24px">
+        <div class="perm-line"><svg class="ic"><use href="#ic-edit"/></svg> alterar <span class="mono">analise.R</span> ?</div>
+        <div class="perm-actions">
+          <span class="perm-yes" data-step="2"><svg class="ic"><use href="#ic-check"/></svg> aprovar</span>
+          <span class="perm-no"><svg class="ic"><use href="#ic-x"/></svg> recusar</span>
+        </div>
+      </div>
+      <div class="aside" data-step="3" style="margin-top:18px">Nada acontece sem o teu sim. Lês a proposta e decides.</div>
+    </div>
+  </section>
+
+  <!-- ============ 20 · A IA PODE ERRAR ============ -->
+  <section class="slide center" id="s-aierra" data-slide data-title="A IA pode enganar-se">
     <div class="slide-inner">
       <div class="kicker">Antes de confiares</div>
       <h2>A IA pode <span class="uline">enganar-se<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path pathLength="640" d="M3 12 C 80 4, 140 18, 200 9 S 280 6, 297 12"/></svg></span></h2>
@@ -570,7 +618,7 @@
   </section>
 
   <!-- ============ 20 · A FRONTEIRA ============ -->
-  <section class="slide" id="s-boundary" data-slide data-title="A fronteira">
+  <section class="slide center" id="s-boundary" data-slide data-title="A fronteira">
     <div class="slide-inner">
       <div class="kicker">A parte que mais importa</div>
       <h2>Para pensar, o agente envia os teus ficheiros para fora</h2>
@@ -598,29 +646,39 @@
   </section>
 
   <!-- ============ 20 · DADOS DE DOENTES ============ -->
-  <section class="slide" id="s-patient" data-slide data-title="Dados de doentes">
+  <section class="slide center" id="s-patient" data-slide data-title="Dados de doentes">
     <div class="slide-inner">
       <div class="kicker">Quando os ficheiros têm dados de doentes</div>
       <h2>Não é uma conveniência</h2>
-      <p class="lead">Enviar dados identificáveis para fora é <b>tratamento de dados</b> (RGPD).
-        Três perguntas, primeiro:</p>
+      <p class="lead">Enviar dados identificáveis é <b>tratamento de dados</b> (RGPD). Três perguntas:</p>
 
       <div class="gov-list">
         <div class="gov-item" data-step="1"><svg class="ic"><use href="#ic-doc"/></svg> Há um <b>contrato</b> com quem trata os dados?</div>
-        <div class="gov-item" data-step="2"><svg class="ic"><use href="#ic-globe"/></svg> <b>Onde</b> (em que país) ficam guardados os dados?</div>
-        <div class="gov-item" data-step="3"><svg class="ic"><use href="#ic-check"/></svg> Há <b>base legal</b> e consentimento para este uso?</div>
+        <div class="gov-item" data-step="2"><svg class="ic"><use href="#ic-globe"/></svg> <b>Onde</b> ficam guardados?</div>
+        <div class="gov-item" data-step="3"><svg class="ic"><use href="#ic-check"/></svg> Há <b>base legal</b> e consentimento?</div>
       </div>
 
-      <div class="aside warn" data-step="4" style="margin-top:22px">
-        Sem resposta clara, <b>não envies para a cloud</b>. Na dúvida, fala com o DPO.
-      </div>
-
-      <div class="decision" data-step="5">
+      <div class="decision" data-step="4">
         <span class="dlabel">Sem resposta clara às três:</span>
         <span class="dopt no"><svg class="ic"><use href="#ic-x"/></svg> não enviar para a cloud</span>
         <span class="dopt ok"><svg class="ic"><use href="#ic-shield"/></svg> usar modelo local</span>
         <span class="dopt"><svg class="ic"><use href="#ic-check"/></svg> falar com o DPO</span>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ 20c · PSEUDONIMIZACAO ============ -->
+  <section class="slide center" id="s-pseudon" data-slide data-title="Pseudonimização">
+    <div class="slide-inner">
+      <div class="kicker">Antes de usar, despir os dados</div>
+      <h2>Pseudonimização</h2>
+      <p class="lead">Tirar o que identifica o doente <b>antes</b> de o ficheiro ser usado.</p>
+      <div class="redact" style="margin-top:24px">
+        <div class="rline"><span class="rk">Nome</span><span class="rv" data-step="1">João M. Silva</span><span class="rv mask" data-step="1">█████████</span></div>
+        <div class="rline"><span class="rk">Nº utente</span><span class="rv" data-step="1">123456789</span><span class="rv mask" data-step="1">█████████</span></div>
+        <div class="rline"><span class="rk">Dados clínicos</span><span class="rv keep" data-step="1">tensão, idade, exame</span></div>
+      </div>
+      <div class="aside" data-step="2" style="margin-top:18px">Reduz o risco — mas confirma sempre a base legal. Não é um passe livre.</div>
     </div>
   </section>
 
@@ -651,8 +709,14 @@
           <div class="aside" data-step="1">Instala-se da mesma lista verificada:
             <span style="font-family:var(--mono);font-style:normal;color:var(--accent)">instalar ollama</span>.</div>
           <div class="aside" data-step="2" style="margin-top:6px">
-            Mais lento, menos capaz — mas <b>privado por construção</b>.
-            A cloud só sem dados de doentes (ou com contratos e consentimento).
+            <b>Precisa de máquina capaz:</b> modelos pequenos correm num portátil recente (muita
+            RAM); os maiores pedem placa gráfica (GPU). Mais lento que a cloud.
+          </div>
+          <div class="aside" data-step="3" style="margin-top:6px">
+            Privado por construção. A cloud só sem dados de doentes (ou com contratos e consentimento).
+          </div>
+          <div class="muted" data-step="3" style="font-family:var(--mono);font-size:12px;margin-top:6px">
+            requisitos e nomes mudam — confirma a documentação atual (2026)
           </div>
         </div>
       </div>
@@ -660,7 +724,7 @@
   </section>
 
   <!-- ============ 24 · PRIMEIROS PASSOS ============ -->
-  <section class="slide optional" id="s-start" data-slide data-title="Primeiros passos">
+  <section class="slide optional center" id="s-start" data-slide data-title="Primeiros passos">
     <div class="slide-inner">
       <div class="kicker">E agora, como começo eu?</div>
       <h2>Primeiros passos</h2>
@@ -676,29 +740,109 @@
   </section>
 
   <!-- ============ 25 · GLOSSARIO ============ -->
-  <section class="slide" id="s-glossary" data-slide data-title="Glossario">
+  <section class="slide center" id="s-glossary" data-slide data-title="Glossario">
     <div class="slide-inner">
       <div class="kicker">As palavras todas, em português</div>
       <h2>Glossário rápido</h2>
       <div class="glossary">
-        <div class="gl"><span class="t">Hardware</span><span class="d">a máquina física</span></div>
-        <div class="gl"><span class="t">Software</span><span class="d">os programas (as instruções)</span></div>
-        <div class="gl"><span class="t">Sistema operativo</span><span class="d">quem organiza tudo (Windows, macOS, Linux)</span></div>
-        <div class="gl"><span class="t">Ficheiro</span><span class="d">informação guardada com um nome</span></div>
-        <div class="gl"><span class="t">Terminal</span><span class="d">janela de texto para dar ordens</span></div>
-        <div class="gl"><span class="t">Gestor de pacotes</span><span class="d">instalar de fontes de confiança</span></div>
-        <div class="gl"><span class="t">Cloud</span><span class="d">computador de outra empresa, noutro sítio</span></div>
-        <div class="gl"><span class="t">API</span><span class="d">o formato do pedido a um serviço</span></div>
-        <div class="gl"><span class="t">Chave de API</span><span class="d">a tua credencial pessoal</span></div>
-        <div class="gl"><span class="t">Agente</span><span class="d">IA que trabalha nos teus ficheiros</span></div>
-        <div class="gl"><span class="t">Ollama</span><span class="d">IA que corre na tua própria máquina</span></div>
-        <div class="gl"><span class="t">Dotfile</span><span class="d">ficheiro de definições, oculto</span></div>
+        <div class="gl"><span class="t" data-term="Hardware">Hardware</span><span class="d">a máquina física</span><span class="eg">o computador do serviço</span></div>
+        <div class="gl"><span class="t" data-term="Software">Software</span><span class="d">os programas (as instruções)</span><span class="eg">o sistema de registos</span></div>
+        <div class="gl"><span class="t" data-term="Sistema operativo">Sistema operativo</span><span class="d">quem organiza tudo</span><span class="eg">Windows · macOS · Linux</span></div>
+        <div class="gl"><span class="t" data-term="Ficheiro">Ficheiro</span><span class="d">informação com um nome</span><span class="eg">um exame em PDF</span></div>
+        <div class="gl"><span class="t" data-term="Terminal">Terminal</span><span class="d">janela de texto para dar ordens</span><span class="eg">escrever em vez de clicar</span></div>
+        <div class="gl"><span class="t" data-term="Gestor de pacotes">Gestor de pacotes</span><span class="d">instalar de fontes de confiança</span><span class="eg">como um formulário aprovado</span></div>
+        <div class="gl"><span class="t" data-term="Cloud">Cloud</span><span class="d">computador de outra empresa</span><span class="eg">enviar a um laboratório externo</span></div>
+        <div class="gl"><span class="t" data-term="API">API</span><span class="d">o formato do pedido a um serviço</span><span class="eg">um impresso de requisição</span></div>
+        <div class="gl"><span class="t" data-term="Chave de API">Chave de API</span><span class="d">a tua credencial pessoal</span><span class="eg">como o teu acesso ao sistema</span></div>
+        <div class="gl"><span class="t" data-term="Agente">Agente</span><span class="d">IA que trabalha nos teus ficheiros</span><span class="eg">lê, escreve, executa</span></div>
+        <div class="gl"><span class="t" data-term="Ollama">Ollama</span><span class="d">IA que corre na tua máquina</span><span class="eg">nada sai para fora</span></div>
+        <div class="gl"><span class="t" data-term="Dotfile">Dotfile</span><span class="d">ficheiro de definições, oculto</span><span class="eg">a calibração de um aparelho</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 26 · RECAP ============ -->
-  <section class="slide" id="s-recap" data-slide data-title="Em resumo">
+  <!-- ============ 26 · QUIZ 1 (opcional) ============ -->
+  <section class="slide optional center" id="s-quiz-1" data-slide data-title="Quiz (1/2)">
+    <div class="slide-inner">
+      <div class="kicker">Quiz · 1 de 2 · pergunta à turma</div>
+      <div class="quiz">
+        <div class="quiz-q">
+          <div class="qq">1 · Ao desligar o computador, o que <b>desaparece</b>?</div>
+          <div class="qopts"><span>A) o arquivo</span><span>B) a memória (RAM)</span><span>C) o sistema</span></div>
+          <div class="qa" data-step="1"><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — o armazenamento fica.</div>
+        </div>
+        <div class="quiz-q">
+          <div class="qq">2 · No Windows, o caminho usa que separador?</div>
+          <div class="qopts"><span>A) /</span><span>B) \</span><span>C) :</span></div>
+          <div class="qa" data-step="2"><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — barra invertida. macOS/Linux usam /.</div>
+        </div>
+        <div class="quiz-q">
+          <div class="qq">3 · O gestor de pacotes instala a partir de...</div>
+          <div class="qopts"><span>A) qualquer site</span><span>B) uma lista verificada</span><span>C) email</span></div>
+          <div class="qa" data-step="3"><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — fontes de confiança.</div>
+        </div>
+        <div class="quiz-q open">
+          <div class="qq">4 · <i>Pergunta à turma:</i> o que é uma <b>API</b>?</div>
+          <div class="qa" data-step="4"><svg class="ic"><use href="#ic-check"/></svg> o formato do pedido a um serviço — um impresso de requisição.</div>
+        </div>
+        <div class="quiz-q">
+          <div class="qq">5 · A chave de API deve ser...</div>
+          <div class="qopts"><span>A) partilhada com a equipa</span><span>B) guardada em variável de ambiente</span><span>C) colada no código</span></div>
+          <div class="qa" data-step="5"><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — pessoal; se vazar, revogar.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 27 · QUIZ 2 (opcional) ============ -->
+  <section class="slide optional center" id="s-quiz-2" data-slide data-title="Quiz (2/2)">
+    <div class="slide-inner">
+      <div class="kicker">Quiz · 2 de 2 · o que mais importa</div>
+      <div class="quiz">
+        <div class="quiz-q">
+          <div class="qq">6 · Ao usar um agente na cloud, os teus ficheiros...</div>
+          <div class="qopts"><span>A) ficam na máquina</span><span>B) saem e atravessam a fronteira</span><span>C) são apagados</span></div>
+          <div class="qa" data-step="1"><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — cruzam a fronteira institucional.</div>
+        </div>
+        <div class="quiz-q">
+          <div class="qq">7 · Com dados de doentes, a opção segura é...</div>
+          <div class="qopts"><span>A) a cloud mais rápida</span><span>B) o modelo local</span><span>C) email</span></div>
+          <div class="qa" data-step="2"><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — nada sai; cloud só com contratos e consentimento.</div>
+        </div>
+        <div class="quiz-q">
+          <div class="qq">8 · Pseudonimizar é...</div>
+          <div class="qopts"><span>A) encriptar tudo</span><span>B) tirar identificadores antes de usar</span><span>C) apagar o ficheiro</span></div>
+          <div class="qa" data-step="3"><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — reduz o risco, não é passe livre.</div>
+        </div>
+        <div class="quiz-q open">
+          <div class="qq">9 · <i>Pergunta à turma:</i> antes de o agente escrever um ficheiro, o que acontece?</div>
+          <div class="qa" data-step="4"><svg class="ic"><use href="#ic-check"/></svg> pede autorização — tu aprovas ou recusas.</div>
+        </div>
+        <div class="quiz-q open">
+          <div class="qq">10 · <i>Pergunta à turma:</i> a IA pode enganar-se. O que fazes?</div>
+          <div class="qa" data-step="5"><svg class="ic"><use href="#ic-check"/></svg> confirmar sempre — a responsabilidade clínica é tua.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 28 · TERMOS NAO FALADOS ============ -->
+  <section class="slide center" id="s-parking" data-slide data-title="Termos nao falados">
+    <div class="slide-inner">
+      <div class="kicker">Ficou muito de fora</div>
+      <h2>Não falámos destes</h2>
+      <p class="lead">Algum que queiram discutir?</p>
+      <div class="parklist">
+        <span data-term="bit / byte">bit / byte</span><span data-term="CPU vs GPU">CPU vs GPU</span><span data-term="IP / DNS">IP / DNS</span><span data-term="navegador">navegador</span>
+        <span data-term="encriptação">encriptação</span><span data-term="VPN">VPN</span><span data-term="base de dados">base de dados</span><span data-term="Git / versões">Git / versões</span>
+        <span data-term="container">container</span><span data-term="backup">backup</span><span data-term="token">token</span><span data-term="fine-tuning">fine-tuning</span>
+        <span data-term="RAG">RAG</span><span data-term="Wi-Fi / rede">Wi-Fi / rede</span><span data-term="open source">open source</span><span data-term="palavra-passe">palavra-passe</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 29 · RECAP ============ -->
+  <section class="slide center" id="s-recap" data-slide data-title="Em resumo">
     <div class="slide-inner">
       <div class="kicker">Do princípio ao fim</div>
       <h2>O caminho completo</h2>
@@ -791,32 +935,83 @@
 <script type="application/json" id="notes-data">
 {
   "s-title": "Enquadra: hoje vamos da maquina fisica ate usar uma IA, sem dar nada por adquirido. <b>Pergunta:</b> quem ja abriu um terminal? (calibra o nivel).",
-  "s-map": "As tres perguntas do dia; a 3.&ordf; (ficheiros + IA) e a que importa mesmo. <b>Diz:</b> &laquo;no fim, vemos o mapa completo disto tudo&raquo; &mdash; cria reconhecimento no slide 27.",
+  "s-map": "As tres perguntas do dia; a 3.&ordf; (ficheiros + IA) e a que importa mesmo. <b>Diz:</b> &laquo;no fim, vemos o mapa completo disto tudo&raquo; &mdash; cria reconhecimento no slide final (o mapa).",
   "s-what": "Entrada &rarr; processamento &rarr; saida. Metafora: pedir uma analise &mdash; amostra, laboratorio, resultado.",
   "s-hardware": "Tres pecas. No passo &laquo;Desligar&raquo;, <b>martela</b>: o que esta na memoria desaparece; no arquivo, fica. Fecho: tudo isto esta so <i>nesta</i> maquina &mdash; ate algo o enviar para fora (semente da fronteira).",
   "s-software": "Hardware + instrucoes = trabalho feito. Metafora: o conhecimento clinico e o que torna util um profissional treinado.",
   "s-os": "O intermediario entre ti e as pecas. Windows / macOS / Linux.",
-  "s-file": "Informacao com um nome. O fim do nome diz o tipo (.csv).",
+  "s-file": "Informacao guardada com um nome. <b>Antes do ponto = nome; depois = extensao</b> (o tipo). A extensao diz como os dados estao guardados e que programa abre.",
+  "s-filetypes": "A extensao escolhe o programa: .csv tabela (folha de calculo) &mdash; <b>nota: csv e texto, nao e uma folha de calculo</b>; .docx texto (processador); .jpg imagem (editor); .pdf documento (leitor); .html web (<b>browser</b>). Ponte: o browser abre a web &mdash; e e num browser que falas com um chatbot (liga ao agente).",
   "s-filesystem": "Pastas dentro de pastas = arquivo clinico (servico &rarr; processo &rarr; documentos). A maquina escreve o caminho numa linha so.",
+  "s-paths": "O mesmo ficheiro, dois sistemas. Mesma estrutura; muda so a escrita: Windows usa <b>\\</b> e letra de unidade (<b>C:</b>); macOS/Linux usam <b>/</b>.",
   "s-zones": "Zona do sistema (restrita) vs a tua zona. Impede estragar o sistema sem querer. Metafora: armazem da farmacia vs o teu gabinete.<br><b>&#10003; VERIFICA (fim do bloco 1):</b> &laquo;O que se perde ao desligar &mdash; a memoria ou o arquivo?&raquo;",
   "s-dotfiles": "<i>(opcional)</i> Definicoes fora de vista, como a calibracao de um aparelho. Comecam por ponto. Vais ve-los ao configurar as ferramentas.",
   "s-shell": "Clicar (5 passos) vs escrever (1 linha). O que muda e o esforco.",
   "s-terminal": "Deixa o terminal escrever sozinho; depois a legenda colorida: utilizador / pasta / ordem / resposta. Tranquiliza: e so texto que entra e texto que sai.",
+  "s-workdir": "A pasta do projeto onde o agente trabalha (working directory). Abres o terminal dentro dela; so ai ele le e escreve. O que esta fora fica de fora.",
   "s-automate": "<i>(opcional)</i> Uma ordem, mil ficheiros. Trabalho repetitivo sem esforco.",
   "s-packages": "Gestor de pacotes = so de fontes verificadas. Metafora: formulario de medicamentos aprovados. Nunca um programa qualquer apanhado na net.",
   "s-internet": "Pedido &rarr; servidor &rarr; resposta. Metafora: amostra ao laboratorio externo, relatorio de volta.",
   "s-api": "So um impresso de requisicao: campos fixos, sem ambiguidade.",
-  "s-apikey": "A tua credencial pessoal. Nao partilhar, nao expor. <b>Pode ter custos.</b> Metafora: o teu login de prescritor.",
+  "s-apikey": "Credencial pessoal. Nao partilhar; <b>guardar em variavel de ambiente</b> (nunca num ficheiro partilhado); se vazar, <b>revogar e gerar outra</b>; atencao aos <b>custos por uso</b>. Metafora: as tuas credenciais de acesso ao sistema clinico.",
   "s-model": "O &laquo;cerebro emprestado&raquo;: programa enorme num datacenter, nao no teu portatil. A chave da acesso; ha muitos modelos, capacidades e precos diferentes.<br><b>&#10003; VERIFICA (fim do bloco 2):</b> &laquo;Onde corre o modelo &mdash; no teu portatil ou num datacenter?&raquo;",
   "s-agent": "Le, escreve, executa. Instala-se com o gestor de pacotes. <b>&#9654; TRANSICAO:</b> aqui, Esc/f para sair e abrir o <b>TERMINAL REAL</b>; mostra o OpenCode a correr com um comando real. (Volta depois ao slide seguinte.)",
-  "s-aierra": "Pode inventar com confianca; nao conhece o teu doente. <b>Confirma sempre.</b> Assistente, nao substituto &mdash; a responsabilidade clinica e tua.",
+  "s-prompt": "O prompt e o que escreves; a janela de contexto e o que o modelo ve de cada vez (ficheiros + pergunta). O que fica fora, ele nao conhece &mdash; tu escolhes o que entra.",
+  "s-perms": "O agente propoe e pede autorizacao antes de escrever/correr. Tu les a proposta e aprovas ou recusas. Nada acontece sem o teu sim.",
+  "s-aierra": "Pode inventar com confianca; nao conhece o caso a frente. <b>Confirma sempre.</b> Assistente, nao substituto &mdash; a responsabilidade clinica e tua.",
   "s-boundary": "<b>O coracao da apresentacao.</b> Para pensar, o agente envia os teus ficheiros para fora. Deixa o fluxo atravessar a linha. Frase para assentar: &laquo;o conteudo dos teus ficheiros sai da maquina&raquo;. <b>Faz uma pausa aqui.</b>",
   "s-patient": "E tratamento de dados (RGPD). As tres perguntas: contrato? onde ficam? base legal/consentimento? Sem resposta clara aos tres &rarr; nao enviar para a cloud &middot; usar modelo local &middot; falar com o DPO.",
-  "s-local": "A opcao segura para dados identificaveis: corre na propria maquina (Ollama), do mesmo gestor de pacotes. Mais lento, menos capaz &mdash; mas <b>privado por construcao</b>.",
+  "s-pseudon": "Tirar o que identifica (nome, nº utente) antes de usar o ficheiro. Reduz o risco &mdash; mas confirma a base legal, nao e passe livre.",
+  "s-local": "A opcao segura para dados identificaveis: corre na propria maquina (Ollama), do mesmo gestor de pacotes. <b>Precisa de maquina capaz</b> (muita RAM; modelos grandes pedem GPU) e e mais lento &mdash; mas <b>privado por construcao</b>. Requisitos/nomes mudam: confirma a documentacao atual.",
   "s-start": "<i>(opcional)</i> Checklist de arranque. Lembra que nomes/versoes mudam &mdash; procura a documentacao atual.",
-  "s-glossary": "&laquo;Levem isto.&raquo; Pagina de consulta PT.",
+  "s-glossary": "&laquo;Levem isto.&raquo; Pagina de consulta PT, com um exemplo por termo.",
+  "s-quiz-1": "<i>(opcional)</i> Le a pergunta, deixa a turma responder, so depois avanca o passo para revelar. 1-5: memoria; barra \\ no Windows; lista verificada; o que e uma API; chave em variavel de ambiente.",
+  "s-quiz-2": "<i>(opcional)</i> 6-10: ficheiros saem para a cloud; dados de doentes &rarr; modelo local; pseudonimizar = tirar identificadores; agente pede autorizacao; a IA pode errar &rarr; confirmar sempre.",
+  "s-parking": "Termos que nao demos. Pergunta a turma se ha algum que queiram discutir; abre 1-2 a vontade conforme o tempo.",
   "s-recap": "<b>&#10003; VERIFICA (recapitulacao):</b> antes de revelar, pede a turma para reconstruir a cadeia (maquina &rarr; &hellip; &rarr; agente). Depois reforca: dados de doentes &rarr; modelo local; cloud so com contratos e consentimento.",
   "s-schema": "A peca visual. Deixa os fios desenharem-se e os dados fluirem. &laquo;Reconhecem isto? E tudo o que vimos, ligado.&raquo; Termina aqui."
+}
+</script>
+
+<!-- Modal de termos (clique num termo do parking / glossario) -->
+<dialog class="term-modal">
+  <button class="tm-close" aria-label="Fechar">&times;</button>
+  <h3 class="tm-title"></h3>
+  <p class="tm-def"></p>
+  <a class="tm-wiki" target="_blank" rel="noopener">Wikipédia &#8599;</a>
+</dialog>
+
+<!-- Definicoes dos termos: termo -> { def, wiki (slug PT) } -->
+<script type="application/json" id="term-data">
+{
+  "Hardware": { "def": "As partes físicas do computador — o que se pode tocar.", "wiki": "Hardware" },
+  "Software": { "def": "Os programas: as instruções que dizem ao hardware o que fazer.", "wiki": "Software" },
+  "Sistema operativo": { "def": "O programa principal que gere as peças, corre os programas e guarda os ficheiros.", "wiki": "Sistema_operativo" },
+  "Ficheiro": { "def": "Informação guardada com um nome (um exame, uma imagem, uma nota).", "wiki": "Ficheiro_informático" },
+  "Terminal": { "def": "Janela de texto onde se escrevem ordens à máquina.", "wiki": "Emulador_de_terminal" },
+  "Gestor de pacotes": { "def": "Ferramenta que instala software a partir de fontes verificadas.", "wiki": "Sistema_de_gestão_de_pacotes" },
+  "Cloud": { "def": "Computadores de outra empresa, noutro sítio, acedidos pela internet.", "wiki": "Computação_em_nuvem" },
+  "API": { "def": "O formato fixo de um pedido a um serviço — como um impresso de requisição.", "wiki": "Interface_de_programação_de_aplicações" },
+  "Chave de API": { "def": "Credencial pessoal que te identifica num serviço externo.", "wiki": "Chave_de_API" },
+  "Agente": { "def": "Programa de IA que lê, escreve e executa nos teus ficheiros.", "wiki": "Agente_inteligente" },
+  "Ollama": { "def": "Ferramenta para correr modelos de IA na própria máquina.", "wiki": "Ollama" },
+  "Dotfile": { "def": "Ficheiro de definições, oculto, cujo nome começa por ponto.", "wiki": "Dotfile" },
+  "bit / byte": { "def": "Bit é a unidade mínima (0 ou 1); 8 bits = 1 byte.", "wiki": "Bit" },
+  "CPU vs GPU": { "def": "CPU faz o trabalho geral; GPU faz muitos cálculos em paralelo (gráficos, IA).", "wiki": "Unidade_de_processamento_gráfico" },
+  "IP / DNS": { "def": "IP é o endereço de um computador na rede; DNS traduz nomes em IPs.", "wiki": "Sistema_de_nomes_de_domínio" },
+  "navegador": { "def": "Programa para ver páginas web (Chrome, Firefox, Safari).", "wiki": "Navegador_web" },
+  "encriptação": { "def": "Cifrar dados para que só quem tem a chave os possa ler.", "wiki": "Criptografia" },
+  "VPN": { "def": "Túnel cifrado que liga a tua máquina a uma rede de forma privada.", "wiki": "Rede_privada_virtual" },
+  "base de dados": { "def": "Sistema que guarda e procura dados de forma organizada.", "wiki": "Base_de_dados" },
+  "Git / versões": { "def": "Sistema que guarda o histórico de alterações de ficheiros.", "wiki": "Git" },
+  "container": { "def": "Caixa isolada que corre um programa com tudo o que ele precisa.", "wiki": "Virtualização_ao_nível_do_sistema_operativo" },
+  "backup": { "def": "Cópia de segurança dos dados, para recuperar se algo falhar.", "wiki": "Cópia_de_segurança" },
+  "token": { "def": "Pedaço de texto que o modelo de IA processa de cada vez; a base do custo.", "wiki": "Token_(linguagem_natural)" },
+  "fine-tuning": { "def": "Afinar um modelo já treinado com dados próprios.", "wiki": "Aprendizagem_por_transferência" },
+  "RAG": { "def": "Dar ao modelo documentos relevantes para responder com base neles.", "wiki": "Geração_aumentada_por_recuperação" },
+  "Wi-Fi / rede": { "def": "Ligação (sem fios ou por cabo) entre máquinas e à internet.", "wiki": "Wi-Fi" },
+  "open source": { "def": "Software cujo código é aberto e livre de ver e modificar.", "wiki": "Código_aberto" },
+  "palavra-passe": { "def": "Segredo que prova que a conta é tua.", "wiki": "Palavra-passe" }
 }
 </script>
 
