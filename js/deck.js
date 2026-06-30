@@ -32,6 +32,72 @@
       '<span class="np-body">' + html + '</span>';
   }
 
+  // ---- vista de apresentador (tecla `p`): janela separada, sincronizada ----
+  // Projetor mostra a deck; o portatil mostra esta janela com notas + proximo slide.
+  // Sincroniza por BroadcastChannel (mesmo origin, offline). Os alunos nunca veem as notas.
+  const pchan = ('BroadcastChannel' in window) ? new BroadcastChannel('intro-deck') : null;
+  function postPresenter() {
+    if (!pchan) return;
+    const id = slides[cur] && slides[cur].id;
+    const nid = slides[cur + 1] && slides[cur + 1].id;
+    pchan.postMessage({
+      type: 'state',
+      n: cur + 1, total: slides.length,
+      title: (slides[cur] && slides[cur].dataset.title) || '',
+      notes: (id && notes[id]) || '',
+      nextTitle: (slides[cur + 1] && slides[cur + 1].dataset.title) || '',
+      nextNotes: (nid && notes[nid]) || '',
+    });
+  }
+  if (pchan) pchan.onmessage = (e) => { if (e.data && e.data.type === 'hello') postPresenter(); };
+
+  const PRESENTER_HTML =
+    '<!doctype html><html lang="pt-PT"><head><meta charset="utf-8"><title>Apresentador</title>' +
+    '<style>' +
+    ':root{color-scheme:dark}*{box-sizing:border-box}' +
+    'body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#12161b;color:#f1efe9;' +
+    'display:flex;flex-direction:column;height:100vh;padding:24px 28px;gap:18px}' +
+    '.top{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #2c3640;padding-bottom:12px}' +
+    '.pos{font:600 15px ui-monospace,monospace;letter-spacing:.1em;color:#5f97a0}' +
+    '#clock{font:600 15px ui-monospace,monospace;color:#97a0a4;cursor:pointer}' +
+    '#clock:hover{color:#e0832a}' +
+    '.now{font-size:13px;text-transform:uppercase;letter-spacing:.18em;color:#7d8c8c;margin:0 0 4px}' +
+    '#title{font-size:30px;font-weight:600;margin:0 0 14px;line-height:1.15}' +
+    '#notes{font-size:21px;line-height:1.5;color:#f1efe9;flex:1;overflow:auto}' +
+    '#notes b{color:#e0832a}' +
+    '.next{border-top:1px solid #2c3640;padding-top:14px;color:#97a0a4}' +
+    '.next .nlab{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:#5f7d54;margin:0 0 4px}' +
+    '#ntitle{font-size:18px;font-weight:600;color:#cdd5d2;margin:0 0 6px}' +
+    '#nnotes{font-size:15px;line-height:1.45;color:#7d8c8c;max-height:22vh;overflow:auto}' +
+    '.hint{font-size:11px;color:#52646a;text-align:center}' +
+    '</style></head><body>' +
+    '<div class="top"><span class="pos" id="pos">— / —</span><span id="clock" title="clicar para reiniciar">00:00</span></div>' +
+    '<div><p class="now">slide atual</p><h1 id="title"></h1><div id="notes"><i>a ligar a deck...</i></div></div>' +
+    '<div class="next"><p class="nlab">a seguir</p><div id="ntitle"></div><div id="nnotes"></div></div>' +
+    '<p class="hint">navega na janela da deck (setas). esta janela so mostra as notas.</p>' +
+    '<script>' +
+    'var ch=new BroadcastChannel("intro-deck"),start=Date.now();' +
+    'function p(n){return (n<10?"0":"")+n}' +
+    'setInterval(function(){var s=Math.floor((Date.now()-start)/1000);document.getElementById("clock").textContent=p(Math.floor(s/60))+":"+p(s%60)},500);' +
+    'document.getElementById("clock").onclick=function(){start=Date.now()};' +
+    'ch.onmessage=function(e){var d=e.data;if(!d||d.type!=="state")return;' +
+    'document.getElementById("pos").textContent=d.n+" / "+d.total;' +
+    'document.getElementById("title").textContent=d.title||"";' +
+    'document.getElementById("notes").innerHTML=d.notes||"<i>sem notas para este slide</i>";' +
+    'document.getElementById("ntitle").textContent=d.nextTitle||"\\u2014 fim \\u2014";' +
+    'document.getElementById("nnotes").innerHTML=d.nextNotes||""};' +
+    'ch.postMessage({type:"hello"});' +
+    'window.addEventListener("beforeunload",function(){ch.close()});' +
+    '<\/script></body></html>';
+
+  function openPresenter() {
+    if (!pchan) { alert('A vista de apresentador precisa de um servidor (http), nao file://.'); return; }
+    const w = window.open('', 'intro-presenter', 'width=760,height=920');
+    if (!w) return;
+    w.document.open(); w.document.write(PRESENTER_HTML); w.document.close();
+    setTimeout(postPresenter, 250);
+  }
+
   let cur = 0;       // indice do slide atual
   let step = 0;      // passos revelados no slide atual
   let overview = false;
@@ -40,40 +106,28 @@
   const stepsOf = (i) => Array.from(slides[i].querySelectorAll('[data-step]'))
     .sort((a, b) => (+a.dataset.step || 0) - (+b.dataset.step || 0));
 
-  // ---- cor por seccao: muda --bg/--accent (com transicao) conforme o slide ----
+  // ---- modo Try-Works: cold (claro) <-> lit (escuro) ----
   const root = document.documentElement;
-  const GROUPS = {
-    intro:       { bg: '#eef0ea', accent: '#0a66d6' },
-    foundations: { bg: '#dde9fa', accent: '#0a57bd' },
-    tools:       { bg: '#dcefe2', accent: '#0a7048' },
-    network:     { bg: '#fbe7cc', accent: '#a85510' },
-    model:       { bg: '#e8e6f4', accent: '#5b4bc4' },
-    risk:        { bg: '#fbe0d4', accent: '#bf3318' },
-    local:       { bg: '#cdebd3', accent: '#0a624a' },
-    close:       { bg: '#eef0ea', accent: '#0a66d6' },
-  };
-  const SECTION = {
-    's-title': 'intro', 's-map': 'intro',
-    's-what': 'foundations', 's-hardware': 'foundations', 's-software': 'foundations',
-    's-os': 'foundations', 's-file': 'foundations', 's-filetypes': 'foundations', 's-filesystem': 'foundations',
-    's-paths': 'foundations', 's-zones': 'foundations', 's-dotfiles': 'foundations',
-    's-shell': 'tools', 's-terminal': 'tools', 's-workdir': 'tools',
-    's-automate': 'tools', 's-packages': 'tools',
-    's-internet': 'network', 's-api': 'network', 's-apikey': 'network',
-    's-model': 'model', 's-agent': 'model', 's-prompt': 'model', 's-perms': 'model',
-    's-aierra': 'risk', 's-boundary': 'risk', 's-patient': 'risk', 's-pseudon': 'risk',
-    's-local': 'local',
-    's-start': 'close', 's-glossary': 'close', 's-quiz': 'close', 's-quiz-1': 'close',
-    's-quiz-2': 'close', 's-parking': 'close', 's-recap': 'close', 's-schema': 'close',
-  };
-  function applySectionColor(s) {
-    const g = GROUPS[(s && SECTION[s.id]) || 'intro'] || GROUPS.intro;
-    const bg = (s && s.dataset.bg) || g.bg;
-    const accent = (s && s.dataset.accent) || g.accent;
-    root.style.setProperty('--bg', bg);
-    root.style.setProperty('--accent', accent);
-    root.style.setProperty('--bg-2', 'color-mix(in srgb, ' + bg + ' 90%, #000)');
+  function toggleMode() {
+    root.dataset.mode = root.dataset.mode === 'lit' ? 'cold' : 'lit';
   }
+
+  // ---- idioma: PT <-> EN (troca innerHTML dos [data-en]) ----
+  let lang = 'pt';
+  const i18nEls = Array.from(document.querySelectorAll('[data-en]'));
+  function setLang(l) {
+    lang = l;
+    root.lang = (l === 'en') ? 'en' : 'pt-PT';
+    i18nEls.forEach(el => {
+      if (el.dataset.pt === undefined) el.dataset.pt = el.innerHTML;
+      el.innerHTML = (l === 'en') ? el.dataset.en : el.dataset.pt;
+    });
+    if (typeof cur === 'number' && slides[cur]) {
+      if (window.SlideHooks && window.SlideHooks.relang) window.SlideHooks.relang(slides[cur]);
+      fitSlide(slides[cur]);
+    }
+  }
+  function toggleLang() { setLang(lang === 'pt' ? 'en' : 'pt'); }
 
   function render(prevIndex) {
     slides.forEach((s, i) => {
@@ -81,14 +135,13 @@
       s.classList.toggle('past', i < cur);
     });
 
-    applySectionColor(slides[cur]);
-
     // progresso
     const pct = slides.length > 1 ? (cur / (slides.length - 1)) * 100 : 100;
     if (bar) bar.style.width = pct + '%';
     if (counter) counter.innerHTML = '<b>' + (cur + 1) + '</b> / ' + slides.length;
     if (titleTag) titleTag.textContent = slides[cur].dataset.title || '';
     renderNotes();
+    postPresenter();
 
     // hooks
     if (window.SlideHooks) {
@@ -268,6 +321,12 @@
         e.preventDefault(); if (!overview) retrigger(); break;
       case 's': case 'S':
         e.preventDefault(); notesOn = !notesOn; document.body.classList.toggle('show-notes', notesOn); renderNotes(); break;
+      case 'd': case 'D':
+        e.preventDefault(); toggleMode(); break;
+      case 'l': case 'L':
+        e.preventDefault(); toggleLang(); break;
+      case 'p': case 'P':
+        e.preventDefault(); openPresenter(); break;
     }
   });
 
@@ -276,6 +335,11 @@
   // hash inicial: #5 abre no slide 5
   const fromHash = parseInt((location.hash || '').slice(1), 10);
   if (!isNaN(fromHash) && fromHash >= 1 && fromHash <= slides.length) cur = fromHash - 1;
+
+  // ?mode=lit|cold e ?lang=en -> estado inicial (revisao / captura)
+  const qp = new URLSearchParams(location.search);
+  if (qp.get('mode') === 'lit' || qp.get('mode') === 'cold') root.dataset.mode = qp.get('mode');
+  if (qp.get('lang') === 'en') setLang('en');
 
   // arranque
   render(null);

@@ -28,35 +28,38 @@
   // ---- terminais falsos ----
   const TERMS = {
     'term-cli': [
-      { out: 'escrevo uma ordem curta e carrego Enter.', cls: 'dim' },
-      { out: '"ls" quer dizer listar (mostrar o que esta na pasta):', cls: 'dim' },
-      { prompt: 'rosa', path: '~/estudo', cmd: 'ls' },
-      { out: 'coorte.csv   notas.txt   analise.txt', delay: 280 },
+      { out: 'escrevo uma ordem curta e carrego Enter.', outEn: 'I type a short command and press Enter.', cls: 'dim' },
+      { out: '"ls" quer dizer listar o que esta na pasta:', outEn: '"ls" means list what is in the folder:', cls: 'dim' },
+      { prompt: 'rosa@mac', path: '~/estudo', pathEn: '~/study', cmd: 'ls' },
+      { out: 'coorte.csv   notas.txt   analise.R', outEn: 'cohort.csv   notes.txt   analysis.R', delay: 280 },
       { blank: true },
-      { out: 'e ja esta: texto entra, texto sai.', cls: 'ok', delay: 220 },
+      { out: 'texto entra, texto sai.', outEn: 'text in, text out.', cls: 'ok', delay: 220 },
     ],
     'term-pkg': [
-      { out: 'peco para instalar a partir da lista verificada:', cls: 'dim' },
-      { prompt: 'rosa', path: '~', cmd: 'instalar editor' },
-      { out: 'a procurar na lista verificada...', cls: 'dim', delay: 320 },
-      { out: 'a confirmar a origem... OK', cls: 'dim', delay: 360 },
-      { out: 'instalado com seguranca.', cls: 'ok', delay: 360 },
+      { out: 'peco para instalar a partir da lista verificada:', outEn: 'I ask to install from the verified list:', cls: 'dim' },
+      { prompt: 'rosa@mac', path: '~', cmd: 'instalar editor', cmdEn: 'install editor' },
+      { out: 'a procurar na lista verificada...', outEn: 'searching the verified list...', cls: 'dim', delay: 320 },
+      { out: 'a confirmar a origem... OK', outEn: 'verifying the source... OK', cls: 'dim', delay: 360 },
+      { out: 'instalado com seguranca.', outEn: 'installed safely.', cls: 'ok', delay: 360 },
     ],
     'term-opencode': [
-      { out: 'arranco o agente dentro da pasta do estudo:', cls: 'dim' },
-      { prompt: 'rosa', path: '~/estudo', cmd: 'opencode' },
-      { out: 'a ler os teus ficheiros...', cls: 'dim', delay: 340 },
-      { out: 'a enviar o conteudo para o servico de IA (na cloud)...', cls: 'warn', delay: 420 },
-      { out: 'resposta recebida. a escrever a alteracao.', cls: 'dim', delay: 400 },
+      { out: 'arranco o agente na pasta do estudo:', outEn: 'I start the agent in the study folder:', cls: 'dim' },
+      { prompt: 'rosa@mac', path: '~/estudo', pathEn: '~/study', cmd: 'opencode' },
+      { out: 'a ler  analise.R  e  coorte.csv ...', outEn: 'reading  analysis.R  and  cohort.csv ...', cls: 'dim', delay: 340 },
+      { out: 'envio o conteudo para o servico de IA (cloud) ...', outEn: 'sending the content to the AI service (cloud) ...', cls: 'warn', delay: 460 },
+      { out: 'proposta: alterar  analise.R   [s/N]', outEn: 'proposal: edit  analysis.R   [y/N]', cls: 'dim', delay: 380 },
+      { out: 'aprovado. alteracao escrita.', outEn: 'approved. change written.', cls: 'ok', delay: 360 },
       { blank: true },
-      { out: 'repara: os ficheiros sairam da maquina.', cls: 'warn', delay: 280 },
+      { out: 'repara: os teus ficheiros sairam da maquina.', outEn: 'note: your files left the machine.', cls: 'warn', delay: 300 },
     ],
   };
   let termsDone = new Set();
   let boundaryCrossed = false;
   function runTerm(id) {
     const el = document.getElementById(id);
+    const lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
     if (el && window.typeInto) window.typeInto(el, TERMS[id], {
+      lang,
       onDone() { if (window.Deck && window.Deck.refit) window.Deck.refit(); },
     });
   }
@@ -69,7 +72,7 @@
     '.dest-machine .slot': 'filled',
     '.rr-stage': 'send recv', '.boundary-stage': 'leak sealed',
     '.recap-chain': 'go', '.roadmap': 'go', '.filecard': 'draw',
-    '.auto-file': 'done', '.auto-files': 'scanning',
+    '.auto-file': 'done', '.auto-files': 'scanning', '.costmeter': 'fill',
   };
   function resetState(slideEl) {
     for (const [sel, cls] of Object.entries(RESET)) {
@@ -125,10 +128,10 @@
     g.innerHTML = '';
     if (REDUCED) return;
     const wires = [
-      { sel: '#wire-spine', color: '#0a66d6', n: 3, dur: 2600 },
-      { sel: '#wire-cloud', color: '#c2410c', n: 2, dur: 2100 },
-      { sel: '#wire-local', color: '#0a7048', n: 1, dur: 1700 },
-      { sel: '#wire-pkg',   color: '#0a66d6', n: 1, dur: 1500 },
+      { sel: '#wire-spine', color: '#4d7680', n: 3, dur: 2600 },
+      { sel: '#wire-cloud', color: '#c9651d', n: 2, dur: 2100 },
+      { sel: '#wire-local', color: '#86a87f', n: 1, dur: 1700 },
+      { sel: '#wire-pkg',   color: '#4d7680', n: 1, dur: 1500 },
     ];
     wires.forEach(w => {
       const p = A.path(w.sel);
@@ -224,6 +227,14 @@
           const ext = slideEl.querySelector('.fn-ext');
           if (ext) L({ targets: ext, scale: [1, 1.08], duration: 1100, direction: 'alternate', loop: true, easing: 'easeInOutSine' });
         }
+        if (id === 's-tokens') {
+          const tks = $('.tokenize .tk', slideEl);
+          if (tks.length) { A.set(tks, { opacity: 0, scale: 0.7 });
+            A({ targets: tks, opacity: [0, 1], scale: [0.7, 1], duration: 480, delay: A.stagger(110, { start: 300 }), easing: 'easeOutBack' }); }
+        }
+        if (id === 's-cost') {
+          later(() => slideEl.querySelector('.costmeter')?.classList.add('fill'), 500);
+        }
         if (id === 's-workdir') {
           const f = slideEl.querySelector('.giant .ic');
           if (f) L({ targets: f, scale: [1, 1.06], duration: 1300, direction: 'alternate', loop: true, easing: 'easeInOutSine' });
@@ -303,6 +314,16 @@
     onLeave(idx, slideEl) {
       stopLoops();
       clearTimers();
+    },
+
+    // re-corre terminais ja visiveis no idioma atual (chamado pelo toggle `l`)
+    relang(slideEl) {
+      if (!slideEl) return;
+      slideEl.querySelectorAll('.term-body[id]').forEach(t => {
+        if (t.childNodes.length && (!t.closest('[data-step]') || t.closest('[data-step]').classList.contains('shown'))) {
+          runTerm(t.id);
+        }
+      });
     },
   };
 

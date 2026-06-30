@@ -1,16 +1,17 @@
 /* terminal.css — janela de terminal falso (escura, independente do tema) */
 
 .term {
-  --t-bg:    #0c1118;
-  --t-bar:   #18222e;
-  --t-line:  #243240;
-  --t-ink:   #e8eef4;
-  --t-soft:  #9fb2c4;
-  --t-dim:   #6a8197;
-  --t-teal:  #2dd4bf;
-  --t-blue:  #56c2ff;
-  --t-amber: #f5b34a;
-  --t-green: #5fe08a;
+  /* paleta Try-Works (terminal Ghostty: pitch + mar/fogo) */
+  --t-bg:    #12161b;
+  --t-bar:   #1b2127;
+  --t-line:  #2c3640;
+  --t-ink:   #f1efe9;
+  --t-soft:  #97a0a4;
+  --t-dim:   #6f7a7e;
+  --t-teal:  #5f97a0;  /* shoal (prompt/utilizador) */
+  --t-blue:  #5f93b0;  /* tide (pasta) */
+  --t-amber: #e0832a;  /* flame */
+  --t-green: #86a87f;  /* kelp */
 
   margin-top: 22px;
   background: var(--t-bg);
@@ -47,6 +48,7 @@
 .term-line .prompt { color: var(--t-teal); }
 .term-line .prompt::after { content: " "; }
 .term-line .path { color: var(--t-blue); }
+.term-line .promptmark { color: var(--t-amber); font-weight: 600; }
 .term-line .cmd { color: var(--t-ink); }
 .term-line .out { color: var(--t-soft); }
 .term-line .ok { color: var(--t-green); }

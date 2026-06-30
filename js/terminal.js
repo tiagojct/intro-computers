@@ -46,12 +46,14 @@ async function typeInto(container, lines, opts = {}) {
       continue;
     }
 
+    const EN = opts.lang === 'en';
+
     if (line.out != null) {
       // saida pre-escrita, aparece de uma vez (com pequeno atraso)
       await sleep(REDUCED ? 0 : (line.delay ?? 220));
       if (ctrl.cancelled) return;
       const ln = el('span', 'term-line');
-      ln.appendChild(el('span', 'out ' + (line.cls || ''), line.out));
+      ln.appendChild(el('span', 'out ' + (line.cls || ''), (EN && line.outEn != null) ? line.outEn : line.out));
       place(ln);
       place(document.createTextNode('\n'));
       container.scrollTop = container.scrollHeight;
@@ -64,14 +66,18 @@ async function typeInto(container, lines, opts = {}) {
       ln.appendChild(el('span', 'prompt', line.prompt));
     }
     if (line.path) {
-      ln.appendChild(el('span', 'path', line.path));
+      ln.appendChild(el('span', 'path', (EN && line.pathEn != null) ? line.pathEn : line.path));
+      ln.appendChild(document.createTextNode(' '));
+    }
+    if (line.prompt) {
+      ln.appendChild(el('span', 'promptmark', '$'));
       ln.appendChild(document.createTextNode(' '));
     }
     const cmdSpan = el('span', 'cmd', '');
     ln.appendChild(cmdSpan);
     place(ln);
 
-    const text = line.cmd || '';
+    const text = (EN && line.cmdEn != null) ? line.cmdEn : (line.cmd || '');
     if (REDUCED) {
       cmdSpan.textContent = text;
     } else {

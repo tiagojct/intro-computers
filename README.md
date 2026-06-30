@@ -33,9 +33,26 @@ Depois carregar `f` para ecrã inteiro.
 | `o` | grelha de visão geral (clicar num slide salta para ele) |
 | `f` | ecrã inteiro |
 | `t` | repetir a animação / o terminal do slide atual |
-| `s` | notas do orador do slide atual (painel discreto, só para o apresentador) |
+| `s` | notas do orador, sobrepostas na própria deck (cuidado: visíveis se espelhares o ecrã) |
+| `d` | modo claro / escuro |
+| `l` | idioma PT / EN |
+| `p` | abrir a **vista de apresentador** numa janela separada |
 
 `#5` no URL abre diretamente no slide 5.
+
+### Vista de apresentador (`p`)
+
+Para os alunos **não** verem as notas, usa dois ecrãs em modo **estendido** (não espelhado):
+
+1. Liga o projetor como ecrã estendido (não duplicado).
+2. No portátil, abre a deck e carrega `f` (ecrã inteiro) na janela do **projetor**.
+3. Carrega `p` para abrir a janela do apresentador; arrasta-a para o **ecrã do portátil**.
+
+A janela do apresentador mostra o slide atual, as suas notas, o **próximo** slide e um
+cronómetro (clica no cronómetro para reiniciar). Sincroniza com a deck por `BroadcastChannel`
+(mesmo origin, offline) — navega na janela da deck e a do apresentador acompanha. Precisa de
+ser servida por `http://` (não `file://`). Com `s` (notas na própria deck) os alunos veem-nas
+se espelhares; com `p` em ecrã estendido, não.
 
 ## Estrutura
 
@@ -92,12 +109,33 @@ SPEAKER.md            guião de locução (tempos, pontos-chave, transições, c
 
 Slides marcados *(opcional)* aparecem com etiqueta "opcional" na grelha (`o`).
 
-## Design
+## Design — Try-Works
 
-Linguagem **experimental**: composições centradas (sem o esquema fixo título-ao-canto), focos
-de tipografia/ícones gigantes, e a **cor de fundo muda por secção** (azul→fundamentos,
-verde→ferramentas, âmbar→rede, indigo→modelo/agente, terracota→risco/RGPD, verde→local) com
-transição suave — motor em `js/deck.js` (mapa `SECTION`/`GROUPS`).
+Design system **Try-Works** (Moby-Dick, ch.96: *campo frio, fogo raro*). Fontes locais
+(offline, `assets/fonts/`): **Fraunces** (títulos serif display), **Archivo** (UI),
+**JetBrains Mono** (eyebrows/terminal), **Literata** (corpo). Um campo frio (osso/mar) com o
+**âmbar (fogo) só nas marcas críticas** (chave, fronteira/RGPD, custo, "a IA pode errar").
+Dois modos: **True Lamp (claro)** por omissão, **Try-Fire (escuro)** — alternar com `d`.
+
+Slides técnicos novos: **A web** (URL → servidor → página; browser → chatbot), **Tokens**
+(o modelo lê/escreve em pedaços de texto; contexto mede-se em tokens), **Custo na cloud**
+(paga-se por token: entrada+saída; modelo local não cobra por uso).
+
+**Bilingue (PT/EN)** — tecla `l` alterna. Tudo o que está nos slides está traduzido
+(~300 `data-en` em `index.html`, motor em `js/deck.js`): títulos, eyebrows, leads, apartes,
+rótulos de diagrama, quiz, glossário e os terminais falsos (`outEn`/`cmdEn` em `js/animations.js`).
+Só ficam em PT as **notas do orador (`s`)** e as **definições do modal de termos** (são auxiliares
+do apresentador). O toggle re-corre o terminal visível no novo idioma.
+
+**Quiz** — perguntas centradas, **uma de cada vez**: cada slide entra na 1.ª pergunta e cada
+avanço revela a resposta e depois a pergunta seguinte.
+
+**Terminais falsos** — prompt realista `rosa@mac ~/estudo $ cmd` (o `$` a âmbar). O demo do
+agente mostra o fluxo completo: lê ficheiros nomeados → envia para a cloud (âmbar) → pede
+autorização `[s/N]` → escreve → aviso de que os ficheiros saíram da máquina.
+
+Atalhos: `→ ←` navegar · `o` grelha · `f` ecrã · `t` repetir · `s` notas · **`d` modo** · **`l` idioma**.
+Captura/revisão: `?all` (revela passos), `?mode=lit` (escuro), `?lang=en`.
 
 Conteúdo dimensionado por **auto-fit**: se um slide for mais alto que o ecrã, encolhe sozinho.
 
