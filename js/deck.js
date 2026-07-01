@@ -13,6 +13,12 @@
   const bar = document.querySelector('.progress > i');
   const counter = document.querySelector('.hud .count');
   const titleTag = document.querySelector('.slide-title-tag');
+  const hud = document.querySelector('.hud');
+
+  // ?screen -> esta janela vai ser projetada: esconde a barra de atalhos e desliga 's'
+  // (ver mais abaixo, no handler de teclado). Nao precisa de codigo/sala nenhuma.
+  const screenOnly = /[?&]screen\b/.test(location.search);
+  if (screenOnly && hud) hud.style.display = 'none';
 
   // ---- notas do orador (tecla `s`) ----
   const notesPanel = document.querySelector('.notes-panel');
@@ -320,7 +326,11 @@
       case 't': case 'T':
         e.preventDefault(); if (!overview) retrigger(); break;
       case 's': case 'S':
-        e.preventDefault(); notesOn = !notesOn; document.body.classList.toggle('show-notes', notesOn); renderNotes(); break;
+        e.preventDefault();
+        // ?screen ativo: esta janela esta a ser projetada — 's' nao pode mostrar notas
+        // por cima do que a turma ve; abre antes a janela de apresentador (como 'p').
+        if (screenOnly) { openPresenter(); break; }
+        notesOn = !notesOn; document.body.classList.toggle('show-notes', notesOn); renderNotes(); break;
       case 'd': case 'D':
         e.preventDefault(); toggleMode(); break;
       case 'l': case 'L':
