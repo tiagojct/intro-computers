@@ -540,7 +540,7 @@ Rosa<span class="tc-sym">,</span>38.2<span class="tc-sym">,</span>tosse</pre>
     <div class="slide-inner">
       <div class="kicker" data-en="The shape of the request">A forma do pedido</div>
       <h2 data-en="Just a request form">Só um impresso de requisição</h2>
-      <p class="lead" data-en="Computers need the request in a fixed format, with fields. That's an API.">Os computadores precisam do pedido num formato fixo, com campos. Isso é uma API.</p>
+      <p class="lead" data-en="The browser asked a server for a page; programs ask each other for things the same way &mdash; but in a fixed format, with fields. That's an API.">O browser pediu uma página a um servidor; os programas pedem-se coisas uns aos outros da mesma forma &mdash; mas num formato fixo, com campos. Isso é uma API.</p>
 
       <div class="api-stage">
         <div class="api-msg loose" data-step="1">
@@ -607,6 +607,7 @@ Rosa<span class="tc-sym">,</span>38.2<span class="tc-sym">,</span>tosse</pre>
         <span class="tk">hemo</span><span class="tk">grama</span><span class="tk"> com</span><span class="tk">pleto</span><span class="tk"> ur</span><span class="tk">gente</span>
       </div>
       <div class="aside" data-step="2" style="margin-top:18px" data-en="The <b>context window</b> (what it sees at a time) is measured in tokens.">A <b>janela de contexto</b> (o que ele vê de cada vez) mede-se em tokens.</div>
+      <div class="aside" data-step="3" style="margin-top:10px" data-en="Not just text: images, audio and video also get turned into tokens &mdash; that's how a <b>multimodal</b> model &quot;reads&quot; them.">Não é só texto: imagens, áudio e vídeo também se convertem em tokens &mdash; é assim que um modelo <b>multimodal</b> os &quot;lê&quot;.</div>
     </div>
   </section>
 
@@ -617,10 +618,12 @@ Rosa<span class="tc-sym">,</span>38.2<span class="tc-sym">,</span>tosse</pre>
       <h2 data-en="You pay per token">Paga-se por token</h2>
       <div class="costmeter" data-step="1">
         <div class="cm-row"><span class="cm-k" data-en="input">entrada</span><span class="cm-bar in"><i></i></span><span class="cm-v" data-en="what you send">o que envias</span></div>
+        <div class="cm-mid"><svg class="ic"><use href="#ic-cpu"/></svg><span data-en="processing (not billed separately)">processamento <span class="cm-note" data-en="(not billed separately)">(não se paga à parte)</span></span></div>
         <div class="cm-row"><span class="cm-k" data-en="output">saída</span><span class="cm-bar out"><i></i></span><span class="cm-v" data-en="what it answers">o que responde</span></div>
         <div class="cm-sum" data-en="more tokens = more cost"><svg class="ic"><use href="#ic-key"/></svg> mais tokens = mais custo</div>
       </div>
       <div class="aside" data-step="2" style="margin-top:18px" data-en="More context and long answers cost more. The <b>local model</b> has no per-use cost.">Mais contexto e respostas longas custam mais. O <b>modelo local</b> não cobra por uso.</div>
+      <div class="aside" data-step="3" style="margin-top:10px" data-en="Example: summarising a clinical note (~500 input tokens + 150 output) typically costs less than 1 cent with today's cheapest models.">Exemplo: resumir uma nota clínica (~500 tokens de entrada + 150 de saída) custa tipicamente menos de 1 cêntimo, com os modelos mais baratos disponíveis hoje.</div>
     </div>
   </section>
 
@@ -632,8 +635,8 @@ Rosa<span class="tc-sym">,</span>38.2<span class="tc-sym">,</span>tosse</pre>
     <div class="slide-inner">
       <div class="kicker" data-en="Putting it together: the agent">Juntando tudo: o agente</div>
       <h2 data-en="OpenCode">OpenCode</h2>
-      <p class="lead" data-en="An AI that lives in the terminal and works on your files for you. Installed with the <b>package manager</b> you saw.">Uma IA que vive no terminal e trabalha nos teus ficheiros por ti.
-        Instala-se com o <b>gestor de pacotes</b> que já viste.</p>
+      <p class="lead" data-en="OpenCode isn't the AI itself &mdash; it's a <b>harness</b>: a program that gives a model access to your files and terminal. Installed with the <b>package manager</b> you saw.">O OpenCode não é a IA em si &mdash; é um <b>harness</b>: um programa que dá a um modelo acesso
+        aos teus ficheiros e ao terminal. Instala-se com o <b>gestor de pacotes</b> que já viste.</p>
 
       <div class="agent-caps">
         <div class="cap" data-step="1"><svg class="ic ic-lg"><use href="#ic-read"/></svg><h3 data-en="Reads">Lê</h3><p data-en="Opens and understands your files.">Abre e percebe os teus ficheiros.</p></div>
@@ -641,9 +644,8 @@ Rosa<span class="tc-sym">,</span>38.2<span class="tc-sym">,</span>tosse</pre>
         <div class="cap" data-step="3"><svg class="ic ic-lg"><use href="#ic-run"/></svg><h3 data-en="Runs">Executa</h3><p data-en="Runs commands on your behalf.">Corre ordens em teu nome.</p></div>
       </div>
 
-      <div class="term" data-step="4">
-        <div class="term-bar"><span class="tb r"></span><span class="tb y"></span><span class="tb g"></span><span class="title">opencode</span></div>
-        <div class="term-body" id="term-opencode" style="min-height:100px"></div>
+      <div class="aside" data-step="4" style="margin-top:22px" data-en="The <b>model</b> (the brain, in the cloud) thinks; the <b>harness</b> (OpenCode, on your machine) does what it asks &mdash; reads, writes, runs commands.">
+        O <b>modelo</b> (o cérebro, na cloud) pensa; o <b>harness</b> (o OpenCode, no teu computador) executa o que ele pede &mdash; ler, escrever, correr comandos.
       </div>
     </div>
   </section>
@@ -845,23 +847,23 @@ Rosa<span class="tc-sym">,</span>38.2<span class="tc-sym">,</span>tosse</pre>
   </section>
 
   <!-- ============ 26 · QUIZ 1 (opcional) ============ -->
-  <section class="slide optional center" id="s-quiz-1" data-slide data-title="Quiz (1/2)">
+  <section class="slide optional center" id="s-quiz" data-slide data-title="Quiz">
     <div class="slide-inner">
-      <div class="kicker" data-en="Quiz · 1 of 2 · ask the room">Quiz · 1 de 2 · pergunta à turma</div>
+      <div class="kicker" data-en="Quiz · ask the room">Quiz · pergunta à turma</div>
       <div class="quiz">
         <div class="quiz-q">
           <div class="qq" data-en="1 · When you switch off, what <b>disappears</b>?">1 · Ao desligar o computador, o que <b>desaparece</b>?</div>
-          <div class="qopts"><span data-en="A) storage">A) o arquivo</span><span data-en="B) memory (RAM)">B) a memória (RAM)</span><span data-en="C) the system">C) o sistema</span></div>
+          <div class="qopts"><span data-en="A) storage">A) o arquivo</span><span data-correct data-en="B) memory (RAM)">B) a memória (RAM)</span><span data-en="C) the system">C) o sistema</span></div>
           <div class="qa" data-step="1" data-en="<b>B</b> — storage stays."><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — o armazenamento fica.</div>
         </div>
         <div class="quiz-q" data-step="2">
           <div class="qq" data-en="2 · On Windows, which path separator?">2 · No Windows, o caminho usa que separador?</div>
-          <div class="qopts"><span>A) /</span><span>B) \</span><span>C) :</span></div>
+          <div class="qopts"><span>A) /</span><span data-correct>B) \</span><span>C) :</span></div>
           <div class="qa" data-step="3" data-en="<b>B</b> — backslash. macOS/Linux use /."><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — barra invertida. macOS/Linux usam /.</div>
         </div>
         <div class="quiz-q" data-step="4">
           <div class="qq" data-en="3 · The package manager installs from...">3 · O gestor de pacotes instala a partir de...</div>
-          <div class="qopts"><span data-en="A) any site">A) qualquer site</span><span data-en="B) a verified list">B) uma lista verificada</span><span>C) email</span></div>
+          <div class="qopts"><span data-en="A) any site">A) qualquer site</span><span data-correct data-en="B) a verified list">B) uma lista verificada</span><span>C) email</span></div>
           <div class="qa" data-step="5" data-en="<b>B</b> — trusted sources."><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — fontes de confiança.</div>
         </div>
         <div class="quiz-q open" data-step="6">
@@ -870,40 +872,31 @@ Rosa<span class="tc-sym">,</span>38.2<span class="tc-sym">,</span>tosse</pre>
         </div>
         <div class="quiz-q" data-step="8">
           <div class="qq" data-en="5 · The API key should be...">5 · A chave de API deve ser...</div>
-          <div class="qopts"><span data-en="A) shared with the team">A) partilhada com a equipa</span><span data-en="B) kept in an environment variable">B) guardada em variável de ambiente</span><span data-en="C) pasted in the code">C) colada no código</span></div>
+          <div class="qopts"><span data-en="A) shared with the team">A) partilhada com a equipa</span><span data-correct data-en="B) kept in an environment variable">B) guardada em variável de ambiente</span><span data-en="C) pasted in the code">C) colada no código</span></div>
           <div class="qa" data-step="9" data-en="<b>B</b> — personal; if leaked, revoke."><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — pessoal; se vazar, revogar.</div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 27 · QUIZ 2 (opcional) ============ -->
-  <section class="slide optional center" id="s-quiz-2" data-slide data-title="Quiz (2/2)">
-    <div class="slide-inner">
-      <div class="kicker" data-en="Quiz · 2 of 2 · what matters most">Quiz · 2 de 2 · o que mais importa</div>
-      <div class="quiz">
-        <div class="quiz-q">
+        <div class="quiz-q" data-step="10">
           <div class="qq" data-en="6 · Using a cloud agent, your files...">6 · Ao usar um agente na cloud, os teus ficheiros...</div>
-          <div class="qopts"><span data-en="A) stay on the machine">A) ficam na máquina</span><span data-en="B) leave and cross the boundary">B) saem e atravessam a fronteira</span><span data-en="C) get deleted">C) são apagados</span></div>
-          <div class="qa" data-step="1" data-en="<b>B</b> — they cross the institutional boundary."><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — cruzam a fronteira institucional.</div>
+          <div class="qopts"><span data-en="A) stay on the machine">A) ficam na máquina</span><span data-correct data-en="B) leave and cross the boundary">B) saem e atravessam a fronteira</span><span data-en="C) get deleted">C) são apagados</span></div>
+          <div class="qa" data-step="11" data-en="<b>B</b> — they cross the institutional boundary."><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — cruzam a fronteira institucional.</div>
         </div>
-        <div class="quiz-q" data-step="2">
+        <div class="quiz-q" data-step="12">
           <div class="qq" data-en="7 · With patient data, the safe option is...">7 · Com dados de doentes, a opção segura é...</div>
-          <div class="qopts"><span data-en="A) the fastest cloud">A) a cloud mais rápida</span><span data-en="B) the local model">B) o modelo local</span><span>C) email</span></div>
-          <div class="qa" data-step="3" data-en="<b>B</b> — nothing leaves; cloud only with contracts and consent."><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — nada sai; cloud só com contratos e consentimento.</div>
+          <div class="qopts"><span data-en="A) the fastest cloud">A) a cloud mais rápida</span><span data-correct data-en="B) the local model">B) o modelo local</span><span>C) email</span></div>
+          <div class="qa" data-step="13" data-en="<b>B</b> — nothing leaves; cloud only with contracts and consent."><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — nada sai; cloud só com contratos e consentimento.</div>
         </div>
-        <div class="quiz-q" data-step="4">
+        <div class="quiz-q" data-step="14">
           <div class="qq" data-en="8 · Pseudonymising is...">8 · Pseudonimizar é...</div>
-          <div class="qopts"><span data-en="A) encrypt everything">A) encriptar tudo</span><span data-en="B) remove identifiers before use">B) tirar identificadores antes de usar</span><span data-en="C) delete the file">C) apagar o ficheiro</span></div>
-          <div class="qa" data-step="5" data-en="<b>B</b> — lowers the risk, not a free pass."><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — reduz o risco, não é passe livre.</div>
+          <div class="qopts"><span data-en="A) encrypt everything">A) encriptar tudo</span><span data-correct data-en="B) remove identifiers before use">B) tirar identificadores antes de usar</span><span data-en="C) delete the file">C) apagar o ficheiro</span></div>
+          <div class="qa" data-step="15" data-en="<b>B</b> — lowers the risk, not a free pass."><svg class="ic"><use href="#ic-check"/></svg> <b>B</b> — reduz o risco, não é passe livre.</div>
         </div>
-        <div class="quiz-q open" data-step="6">
+        <div class="quiz-q open" data-step="16">
           <div class="qq" data-en="9 · <i>Ask the room:</i> before the agent writes a file, what happens?">9 · <i>Pergunta à turma:</i> antes de o agente escrever um ficheiro, o que acontece?</div>
-          <div class="qa" data-step="7" data-en="it asks permission — you approve or refuse."><svg class="ic"><use href="#ic-check"/></svg> pede autorização — tu aprovas ou recusas.</div>
+          <div class="qa" data-step="17" data-en="it asks permission — you approve or refuse."><svg class="ic"><use href="#ic-check"/></svg> pede autorização — tu aprovas ou recusas.</div>
         </div>
-        <div class="quiz-q open" data-step="8">
+        <div class="quiz-q open" data-step="18">
           <div class="qq" data-en="10 · <i>Ask the room:</i> AI can be wrong. What do you do?">10 · <i>Pergunta à turma:</i> a IA pode enganar-se. O que fazes?</div>
-          <div class="qa" data-step="9" data-en="always check — the clinical responsibility is yours."><svg class="ic"><use href="#ic-check"/></svg> confirmar sempre — a responsabilidade clínica é tua.</div>
+          <div class="qa" data-step="19" data-en="always check — the clinical responsibility is yours."><svg class="ic"><use href="#ic-check"/></svg> confirmar sempre — a responsabilidade clínica é tua.</div>
         </div>
       </div>
     </div>
@@ -1040,9 +1033,9 @@ Rosa<span class="tc-sym">,</span>38.2<span class="tc-sym">,</span>tosse</pre>
   "s-api": "So um impresso de requisicao: campos fixos, sem ambiguidade.",
   "s-apikey": "Credencial pessoal. Nao partilhar; <b>guardar em variavel de ambiente</b> (nunca num ficheiro partilhado); se vazar, <b>revogar e gerar outra</b>; atencao aos <b>custos por uso</b>. Metafora: as tuas credenciais de acesso ao sistema clinico.",
   "s-model": "O &laquo;cerebro emprestado&raquo;: programa enorme num datacenter, nao no teu portatil. A chave da acesso; ha muitos modelos, capacidades e precos diferentes.<br><b>&#10003; VERIFICA (fim do bloco 2):</b> &laquo;Onde corre o modelo &mdash; no teu portatil ou num datacenter?&raquo;",
-  "s-agent": "Le, escreve, executa. Instala-se com o gestor de pacotes. <b>&#9654; TRANSICAO:</b> aqui, Esc/f para sair e abrir o <b>TERMINAL REAL</b>; mostra o OpenCode a correr com um comando real. (Volta depois ao slide seguinte.)",
-  "s-tokens": "O modelo le e escreve em <b>tokens</b> (pedacos de texto, ~silabas). A janela de contexto mede-se em tokens. Liga ao custo e ao prompt.",
-  "s-cost": "A cloud cobra <b>por token</b>: entrada (o que envias) + saida (o que responde). Mais contexto e respostas longas = mais tokens = mais custo. O modelo local nao cobra por uso (paga-se em hardware/tempo).",
+  "s-agent": "OpenCode nao e a IA: e um <b>harness</b> &mdash; um programa que da a um modelo acesso aos teus ficheiros e ao terminal. Le, escreve, executa. Instala-se com o gestor de pacotes. <b>&#9654; TRANSICAO:</b> aqui, Esc/f para sair e abrir o <b>TERMINAL REAL</b>; mostra o OpenCode a correr com um comando real. (Volta depois ao slide seguinte.)",
+  "s-tokens": "O modelo le e escreve em <b>tokens</b> (pedacos de texto, ~silabas). A janela de contexto mede-se em tokens. Nao e so texto: modelos <b>multimodais</b> tambem convertem imagem/audio/video em tokens. Liga ao custo e ao prompt.",
+  "s-cost": "A cloud cobra <b>por token</b>: entrada (o que envias) + saida (o que responde) &mdash; o <b>processamento</b> em si (o modelo a 'pensar') nao se paga a parte, so a entrada e a saida contam. Mais contexto e respostas longas = mais tokens = mais custo. Exemplo real: resumir uma nota clinica (~500 entrada + 150 saida) custa menos de 1 centimo nos modelos mais baratos de hoje. O modelo local nao cobra por uso (paga-se em hardware/tempo).",
   "s-prompt": "O prompt e o que escreves; a janela de contexto e o que o modelo ve de cada vez (ficheiros + pergunta). O que fica fora, ele nao conhece &mdash; tu escolhes o que entra.",
   "s-perms": "O agente propoe e pede autorizacao antes de escrever/correr. Tu les a proposta e aprovas ou recusas. Nada acontece sem o teu sim.",
   "s-aierra": "Pode inventar com confianca; nao conhece o caso a frente. <b>Confirma sempre.</b> Assistente, nao substituto &mdash; a responsabilidade clinica e tua.",
@@ -1052,8 +1045,7 @@ Rosa<span class="tc-sym">,</span>38.2<span class="tc-sym">,</span>tosse</pre>
   "s-local": "A opcao segura para dados identificaveis: corre na propria maquina (Ollama), do mesmo gestor de pacotes. <b>Precisa de maquina capaz</b> (muita RAM; modelos grandes pedem GPU) e e mais lento &mdash; mas <b>privado por construcao</b>. Requisitos/nomes mudam: confirma a documentacao atual.",
   "s-start": "<i>(opcional)</i> Checklist de arranque. Lembra que nomes/versoes mudam &mdash; procura a documentacao atual.",
   "s-glossary": "&laquo;Levem isto.&raquo; Pagina de consulta PT, com um exemplo por termo.",
-  "s-quiz-1": "<i>(opcional)</i> Le a pergunta, deixa a turma responder, so depois avanca o passo para revelar. 1-5: memoria; barra \\ no Windows; lista verificada; o que e uma API; chave em variavel de ambiente.",
-  "s-quiz-2": "<i>(opcional)</i> 6-10: ficheiros saem para a cloud; dados de doentes &rarr; modelo local; pseudonimizar = tirar identificadores; agente pede autorizacao; a IA pode errar &rarr; confirmar sempre.",
+  "s-quiz": "<i>(opcional)</i> Le a pergunta, deixa a turma responder, so depois avanca o passo para revelar (a opcao certa fica verde). 1-5: memoria; barra \\ no Windows; lista verificada; o que e uma API; chave em variavel de ambiente. 6-10: ficheiros saem para a cloud; dados de doentes &rarr; modelo local; pseudonimizar = tirar identificadores; agente pede autorizacao; a IA pode errar &rarr; confirmar sempre.",
   "s-parking": "Termos que nao demos. Pergunta a turma se ha algum que queiram discutir; abre 1-2 a vontade conforme o tempo.",
   "s-recap": "<b>&#10003; VERIFICA (recapitulacao):</b> antes de revelar, pede a turma para reconstruir a cadeia (maquina &rarr; &hellip; &rarr; agente). Depois reforca: dados de doentes &rarr; modelo local; cloud so com contratos e consentimento.",
   "s-schema": "A peca visual. Deixa os fios desenharem-se e os dados fluirem. &laquo;Reconhecem isto? E tudo o que vimos, ligado.&raquo; Termina aqui."

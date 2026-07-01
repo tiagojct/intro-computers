@@ -68,7 +68,7 @@ vendor/anime.min.js   anime.js v3 (local, offline)
 SPEAKER.md            guião de locução (tempos, pontos-chave, transições, cortes)
 ```
 
-## Os 40 slides
+## Os 39 slides
 
 1. Título *(hero centrado)*
 2. O caminho de hoje (três perguntas; "no fim, o mapa completo")
@@ -105,11 +105,10 @@ SPEAKER.md            guião de locução (tempos, pontos-chave, transições, c
 33. Modelo local (opção segura; requisitos de hardware)
 34. Primeiros passos *(opcional)*
 35. Glossário PT (termo + definição + exemplo)
-36. Quiz 1/2 — escolha múltipla, revela por passos *(opcional)*
-37. Quiz 2/2 — risco / RGPD / agente *(opcional)*
-38. **Termos não falados** (lista para discussão aberta)
-39. Em resumo
-40. **O mapa** — esquema final só com símbolos e setas
+36. Quiz — as 10 perguntas no mesmo slide, escolha múltipla + abertas, revela por passos (opção certa fica verde) *(opcional)*
+37. **Termos não falados** (lista para discussão aberta)
+38. Em resumo
+39. **O mapa** — esquema final só com símbolos e setas
 
 Slides marcados *(opcional)* aparecem com etiqueta "opcional" na grelha (`o`).
 
@@ -131,8 +130,8 @@ rótulos de diagrama, quiz, glossário e os terminais falsos (`outEn`/`cmdEn` em
 Só ficam em PT as **notas do orador (`s`)** e as **definições do modal de termos** (são auxiliares
 do apresentador). O toggle re-corre o terminal visível no novo idioma.
 
-**Quiz** — perguntas centradas, **uma de cada vez**: cada slide entra na 1.ª pergunta e cada
-avanço revela a resposta e depois a pergunta seguinte.
+**Quiz** — as 10 perguntas vivem no mesmo slide, reveladas por passo: cada avanço mostra a
+resposta (a opção certa acende a verde) e depois a pergunta seguinte, todas acumuladas no ecrã.
 
 **Terminais falsos** — prompt realista `rosa@mac ~/estudo $ cmd` (o `$` a âmbar). O demo do
 agente mostra o fluxo completo: lê ficheiros nomeados → envia para a cloud (âmbar) → pede

@@ -42,16 +42,6 @@
       { out: 'a confirmar a origem... OK', outEn: 'verifying the source... OK', cls: 'dim', delay: 360 },
       { out: 'instalado com seguranca.', outEn: 'installed safely.', cls: 'ok', delay: 360 },
     ],
-    'term-opencode': [
-      { out: 'arranco o agente na pasta do estudo:', outEn: 'I start the agent in the study folder:', cls: 'dim' },
-      { prompt: 'rosa@mac', path: '~/estudo', pathEn: '~/study', cmd: 'opencode' },
-      { out: 'a ler  analise.R  e  coorte.csv ...', outEn: 'reading  analysis.R  and  cohort.csv ...', cls: 'dim', delay: 340 },
-      { out: 'envio o conteudo para o servico de IA (cloud) ...', outEn: 'sending the content to the AI service (cloud) ...', cls: 'warn', delay: 460 },
-      { out: 'proposta: alterar  analise.R   [s/N]', outEn: 'proposal: edit  analysis.R   [y/N]', cls: 'dim', delay: 380 },
-      { out: 'aprovado. alteracao escrita.', outEn: 'approved. change written.', cls: 'ok', delay: 360 },
-      { blank: true },
-      { out: 'repara: os teus ficheiros sairam da maquina.', outEn: 'note: your files left the machine.', cls: 'warn', delay: 300 },
-    ],
   };
   let termsDone = new Set();
   let boundaryCrossed = false;
@@ -261,6 +251,13 @@
     onStep(idx, step, slideEl) {
       const id = slideEl.id;
 
+      if (id === 's-quiz') {
+        $('.quiz-q', slideEl).forEach(q => {
+          const qa = q.querySelector('.qa[data-step]');
+          const correctOpt = q.querySelector('[data-correct]');
+          if (qa && correctOpt) correctOpt.classList.toggle('correct', Number(qa.dataset.step) <= step);
+        });
+      }
       if (id === 's-hardware') {
         const off = step >= 4;
         slideEl.querySelector('.hw.ram')?.classList.toggle('cleared', off);

@@ -8,7 +8,7 @@ Controla com `→` (avançar passo/slide), `←` (recuar), `t` (repetir animaç�
 > completo; o painel é o lembrete rápido durante a aula. Mostra-o só num ecrã de apresentador.
 
 **Tempo:** ~45 min com tudo; **~30 min** saltando os slides marcados *(opcional)*.
-**Cortes para 30 min:** saltar **Ficheiros ocultos**, **Automatizar**, **Primeiros passos** e o **Quiz** (2 slides).
+**Cortes para 30 min:** saltar **Ficheiros ocultos**, **Automatizar**, **Primeiros passos** e o **Quiz**.
 Na grelha (`o`) os opcionais aparecem marcados "opcional". O contador no ecrã é a referência de posição.
 
 Regra de ouro: o ecrã diz pouco de propósito. A explicação és **tu**.
@@ -136,11 +136,10 @@ Regra de ouro: o ecrã diz pouco de propósito. A explicação és **tu**.
 ### Glossário — *0:45*
 - "Levem isto." Página de consulta PT.
 
-### Quiz (1/2) — *1:30*  *(opcional)*
-- Escolha múltipla. Lê a pergunta, deixa responder, **só depois** avança o passo para revelar a certa.
+### Quiz — *3:00*  *(opcional)*
+- As 10 perguntas vivem no mesmo slide. Lê a pergunta, deixa responder, **só depois** avança o
+  passo para revelar — a opção certa acende a verde, e fica acumulada no ecrã com as anteriores.
 - 1 memória · 2 barra `\` no Windows · 3 lista verificada · 4 (aberta) o que é uma API · 5 chave em variável de ambiente.
-
-### Quiz (2/2) — *1:30*  *(opcional)*
 - 6 ficheiros saem para a cloud · 7 dados de doentes → modelo local · 8 pseudonimizar = tirar identificadores.
 - 9 (aberta) o agente pede autorização · 10 (aberta) a IA pode errar → confirmar sempre.
 
@@ -158,6 +157,6 @@ Regra de ouro: o ecrã diz pouco de propósito. A explicação és **tu**.
 ---
 
 ## Percurso de 30 minutos (cortado)
-Saltar os 4 opcionais: **Ficheiros ocultos**, **Automatizar**, **Primeiros passos**, **Quiz (1/2 + 2/2)**.
+Saltar os 4 opcionais: **Ficheiros ocultos**, **Automatizar**, **Primeiros passos**, **Quiz**.
 Mantém pasta de trabalho, prompt/contexto, permissões e pseudonimização (são curtos e ligam o arco).
 ≈ 30 slides, ~30 min com margem para perguntas e para o estacionamento de termos.
