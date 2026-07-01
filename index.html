@@ -195,6 +195,45 @@
     </div>
   </section>
 
+  <!-- ============ 7a · TUDO E TEXTO (base) ============ -->
+  <section class="slide center" id="s-textbase" data-slide data-title="Tudo e texto">
+    <div class="slide-inner">
+      <div class="kicker" data-en="The foundation of everything">A base de tudo</div>
+      <h2 data-en="Underneath, it's all text">É tudo texto, por baixo</h2>
+      <p class="lead" data-en="Same information. Only the way you write it changes.">A mesma informação. Muda só a forma de a escrever.</p>
+
+      <div class="textcards">
+        <div class="tcard">
+          <div class="tc-head"><span class="tc-name">nota</span><span class="tc-dot">.</span><span class="tc-ext">txt</span></div>
+          <pre class="tc-body" data-en="patient: Rosa<br>temperature: 38.2<br>symptom: cough">doente: Rosa
+temperatura: 38.2
+sintoma: tosse</pre>
+        </div>
+        <div class="tcard" data-step="1">
+          <div class="tc-head"><span class="tc-name">nota</span><span class="tc-dot">.</span><span class="tc-ext">md</span></div>
+          <pre class="tc-body" data-en="<span class=&quot;tc-sym&quot;># </span>Rosa<br><span class=&quot;tc-sym&quot;>**</span>Temperature:<span class=&quot;tc-sym&quot;>**</span> 38.2<br><span class=&quot;tc-sym&quot;>- </span>Symptom: cough"><span class="tc-sym"># </span>Rosa
+<span class="tc-sym">**</span>Temperatura:<span class="tc-sym">**</span> 38.2
+<span class="tc-sym">- </span>Sintoma: tosse</pre>
+        </div>
+        <div class="tcard" data-step="2">
+          <div class="tc-head"><span class="tc-name">dados</span><span class="tc-dot">.</span><span class="tc-ext">csv</span></div>
+          <pre class="tc-body" data-en="patient<span class=&quot;tc-sym&quot;>,</span>temperature<span class=&quot;tc-sym&quot;>,</span>symptom<br>Rosa<span class=&quot;tc-sym&quot;>,</span>38.2<span class=&quot;tc-sym&quot;>,</span>cough">doente<span class="tc-sym">,</span>temperatura<span class="tc-sym">,</span>sintoma
+Rosa<span class="tc-sym">,</span>38.2<span class="tc-sym">,</span>tosse</pre>
+        </div>
+        <div class="tcard" data-step="3">
+          <div class="tc-head"><span class="tc-name">dados</span><span class="tc-dot">.</span><span class="tc-ext">json</span></div>
+          <pre class="tc-body" data-en="<span class=&quot;tc-sym&quot;>{</span>&quot;patient&quot;: &quot;Rosa&quot;<span class=&quot;tc-sym&quot;>,</span><br>&quot;temperature&quot;: 38.2<span class=&quot;tc-sym&quot;>,</span><br>&quot;symptom&quot;: &quot;cough&quot;<span class=&quot;tc-sym&quot;>}</span>"><span class="tc-sym">{</span>"doente": "Rosa"<span class="tc-sym">,</span>
+"temperatura": 38.2<span class="tc-sym">,</span>
+"sintoma": "tosse"<span class="tc-sym">}</span></pre>
+        </div>
+      </div>
+
+      <div class="aside" data-step="4" style="margin-top:20px" data-en="The extension is just a convention — it tells the computer how to read the same text.">
+        A extensão é só uma convenção — diz ao computador como ler o mesmo texto.
+      </div>
+    </div>
+  </section>
+
   <!-- ============ 7b · TIPOS DE FICHEIRO -> SOFTWARE ============ -->
   <section class="slide center" id="s-filetypes" data-slide data-title="Tipos de ficheiro">
     <div class="slide-inner">
@@ -985,6 +1024,7 @@
   "s-software": "Hardware + instrucoes = trabalho feito. Metafora: o conhecimento clinico e o que torna util um profissional treinado.",
   "s-os": "O intermediario entre ti e as pecas. Windows / macOS / Linux.",
   "s-file": "Informacao guardada com um nome. <b>Antes do ponto = nome; depois = extensao</b> (o tipo). A extensao diz como os dados estao guardados e que programa abre.",
+  "s-textbase": "A mesma nota do doente, em 4 formatos: .txt (texto solto), .md (markdown &mdash; simbolos # ** - para formatar), .csv (tabela) e .json (estruturado, o que os programas preferem). <b>Mensagem chave:</b> a extensao e so uma convencao de leitura do mesmo texto. Liga ao proximo slide (a extensao escolhe o programa) e mais a frente ao JSON das APIs.",
   "s-filetypes": "A extensao escolhe o programa: .csv tabela (folha de calculo) &mdash; <b>nota: csv e texto, nao e uma folha de calculo</b>; .docx texto (processador); .jpg imagem (editor); .pdf documento (leitor); .html web (<b>browser</b>). Ponte: o browser abre a web &mdash; e e num browser que falas com um chatbot (liga ao agente).",
   "s-filesystem": "Pastas dentro de pastas = arquivo clinico (servico &rarr; processo &rarr; documentos). A maquina escreve o caminho numa linha so.",
   "s-paths": "O mesmo ficheiro, dois sistemas. Mesma estrutura; muda so a escrita: Windows usa <b>\\</b> e letra de unidade (<b>C:</b>); macOS/Linux usam <b>/</b>.",

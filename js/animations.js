@@ -92,7 +92,7 @@
       A({ targets: text, opacity: [0, 1], translateY: [18, 0], duration: 620, delay: A.stagger(80), easing: 'easeOutCubic' });
     }
     // contentores de diagrama: aparecem com leve subida (filhos [data-step] mantem-se escondidos)
-    const blocks = $('.ioflow, .machine, .sw-stage, .layers, .filecard-stage, .tree, .pathset, .zones, .dot-list, .shell-vs, .term, .registry-flow, .rr-stage, .api-stage, .model-flow, .agent-caps, .boundary-stage, .gov-list, .glossary, .quiz, .key-rules, .keycard, .schema, .frame, .permcard, .redact, .parklist, .ctx-items, .filename, .ftypes', slideEl)
+    const blocks = $('.ioflow, .machine, .sw-stage, .layers, .filecard-stage, .tree, .pathset, .zones, .dot-list, .shell-vs, .term, .registry-flow, .rr-stage, .api-stage, .model-flow, .agent-caps, .boundary-stage, .gov-list, .glossary, .quiz, .key-rules, .keycard, .schema, .frame, .permcard, .redact, .parklist, .ctx-items, .filename, .ftypes, .textcards', slideEl)
       .filter(n => !n.closest('[data-step]'));
     if (blocks.length) {
       A.set(blocks, { opacity: 0, translateY: 22 });

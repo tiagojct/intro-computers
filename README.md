@@ -68,7 +68,7 @@ vendor/anime.min.js   anime.js v3 (local, offline)
 SPEAKER.md            guião de locução (tempos, pontos-chave, transições, cortes)
 ```
 
-## Os 36 slides
+## Os 40 slides
 
 1. Título *(hero centrado)*
 2. O caminho de hoje (três perguntas; "no fim, o mapa completo")
@@ -77,35 +77,39 @@ SPEAKER.md            guião de locução (tempos, pontos-chave, transições, c
 5. Software (máquina + instruções = trabalho feito)
 6. Sistema operativo (camadas; Windows / macOS / Linux)
 7. O que é um ficheiro (anatomia `nome` . `extensão`)
-8. **A extensão diz o tipo/programa** (.csv/.docx/.jpg/.pdf/.html → folha/texto/imagem/PDF/browser; browser → chatbot)
-9. Organização dos ficheiros (árvore = arquivo clínico)
-10. O mesmo caminho (Windows `\` + `C:` vs macOS/Linux `/`)
-11. Zona do sistema vs a tua zona
-12. Ficheiros ocultos (definições) *(opcional)*
-13. Duas formas de pedir o mesmo (clicar vs escrever)
-14. O terminal (comando real `ls`, com legenda)
-15. **Pasta de trabalho** (onde o agente atua — working directory)
-16. Repetir sem esforço (varrimento + contador) *(opcional)*
-17. Instalar programas (lista verificada; Homebrew / apt / npm)
-18. A internet (pedido / resposta)
-19. O que é uma API (impresso de requisição)
-20. Chave de API (+ guarda segura + custos)
-21. O modelo — o cérebro emprestado
-22. O agente OpenCode (lê / escreve / executa; transição p/ terminal real)
-23. **Prompt + contexto** (janela de contexto: o que o modelo vê)
-24. **Permissões do agente** (propõe e pede autorização)
-25. A IA pode enganar-se — confirma sempre
-26. A fronteira — os ficheiros saem da máquina
-27. Dados de doentes (RGPD: contrato / localização / base legal + DPO)
-28. **Pseudonimização** (tirar identificadores antes de usar)
-29. Modelo local (opção segura; requisitos de hardware)
-30. Primeiros passos *(opcional)*
-31. Glossário PT (termo + definição + exemplo)
-32. Quiz 1/2 — escolha múltipla, revela por passos *(opcional)*
-33. Quiz 2/2 — risco / RGPD / agente *(opcional)*
-34. **Termos não falados** (lista para discussão aberta)
-35. Em resumo
-36. **O mapa** — esquema final só com símbolos e setas
+8. **Tudo é texto** (a mesma nota em `.txt` → `.md` → `.csv` → `.json`, animado passo a passo)
+9. A extensão diz o tipo/programa (.csv/.docx/.jpg/.pdf/.html → folha/texto/imagem/PDF/browser; browser → chatbot)
+10. Organização dos ficheiros (árvore = arquivo clínico)
+11. O mesmo caminho (Windows `\` + `C:` vs macOS/Linux `/`)
+12. Zona do sistema vs a tua zona
+13. Ficheiros ocultos (definições) *(opcional)*
+14. Duas formas de pedir o mesmo (clicar vs escrever)
+15. O terminal (comando real `ls`, com legenda)
+16. **Pasta de trabalho** (onde o agente atua — working directory)
+17. Repetir sem esforço (varrimento + contador) *(opcional)*
+18. Instalar programas (lista verificada; Homebrew / apt / npm)
+19. A internet (pedido / resposta)
+20. A web (URL → servidor → página; browser → chatbot)
+21. O que é uma API (impresso de requisição)
+22. Chave de API (+ guarda segura + custos)
+23. O modelo — o cérebro emprestado
+24. Tokens (o modelo lê/escreve em pedaços de texto)
+25. Custo na cloud (paga-se por token: entrada + saída)
+26. O agente OpenCode (lê / escreve / executa; transição p/ terminal real)
+27. **Prompt + contexto** (janela de contexto: o que o modelo vê)
+28. **Permissões do agente** (propõe e pede autorização)
+29. A IA pode enganar-se — confirma sempre
+30. A fronteira — os ficheiros saem da máquina
+31. Dados de doentes (RGPD: contrato / localização / base legal + DPO)
+32. **Pseudonimização** (tirar identificadores antes de usar)
+33. Modelo local (opção segura; requisitos de hardware)
+34. Primeiros passos *(opcional)*
+35. Glossário PT (termo + definição + exemplo)
+36. Quiz 1/2 — escolha múltipla, revela por passos *(opcional)*
+37. Quiz 2/2 — risco / RGPD / agente *(opcional)*
+38. **Termos não falados** (lista para discussão aberta)
+39. Em resumo
+40. **O mapa** — esquema final só com símbolos e setas
 
 Slides marcados *(opcional)* aparecem com etiqueta "opcional" na grelha (`o`).
 
